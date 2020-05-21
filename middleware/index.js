@@ -1,13 +1,6 @@
-import { ADD_SESSION } from '../actions'
-let newState;
-const sessions = (state = {}, action) => {
-  switch (action.type) {
-    case ADD_SESSION:
-      newState = { ...state }
-      newState[action.id] = action.sessionInfo
-    default:
-      return state
-  }
-}
+import thunk from 'redux-thunk'
+import { applyMiddleware } from 'redux'
 
-export default sessions;
+export default applyMiddleware(
+  thunk,
+)
