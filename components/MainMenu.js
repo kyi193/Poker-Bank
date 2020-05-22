@@ -7,9 +7,7 @@ class MainMenu extends Component {
     return (
       <View style={styles.container}>
         <Header
-          leftComponent={{ icon: 'menu', color: '#fff' }}
           centerComponent={{ text: 'Main Menu', style: { color: '#fff' } }}
-          rightComponent={{ icon: 'home', color: '#fff' }}
           containerStyle={{
             backgroundColor: darkGray,
             justifyContent: 'space-around',
