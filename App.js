@@ -11,7 +11,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={createStore(reducer, composeWithDevTools(middleware))}>
-        <View>
+        <View style={{ flex: 1 }}>
           <MainMenu />
         </View>
       </Provider>
