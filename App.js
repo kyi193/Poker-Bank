@@ -7,6 +7,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import middleware from './middleware';
 import MainMenu from './components/MainMenu'
 import DummyChart from './components/DummyChart'
+import AddSession from './components/AddSession'
 
 export default class App extends React.Component {
   render() {
@@ -14,7 +15,8 @@ export default class App extends React.Component {
       <Provider store={createStore(reducer, composeWithDevTools(middleware))}>
         <View style={{ flex: 1 }}>
           {/* <MainMenu /> */}
-          <DummyChart />
+          {/* <DummyChart /> */}
+          <AddSession />
         </View>
       </Provider>
     );
