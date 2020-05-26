@@ -7,7 +7,7 @@ import { darkGray, backgroundGray, menuItemGray, limeGreen } from '../utils/colo
 class AddSession extends Component {
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Header
           leftComponent={<MaterialCommunityIcons
             name="poker-chip"
@@ -19,7 +19,9 @@ class AddSession extends Component {
             backgroundColor: darkGray,
             justifyContent: 'space-around',
           }} />
-        <Text>This is the Add Session Page</Text>
+        <View style={styles.menuContent}>
+
+        </View>
       </View>
     )
   }
