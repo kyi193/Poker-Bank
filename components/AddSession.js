@@ -3,9 +3,15 @@ import { StyleSheet, View, Text, TouchableOpacity, TextInput, Platform, Alert, D
 import { Header } from 'react-native-elements'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { darkGray, backgroundGray, menuItemGray, limeGreen } from '../utils/colors'
+import DatePicker from 'react-native-datepicker'
 
 class AddSession extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { date: '' }
+  }
   render() {
+    console.debug("THE DATE: ", this.state.date)
     return (
       <View style={styles.container}>
         <Header
@@ -20,6 +26,32 @@ class AddSession extends Component {
             justifyContent: 'space-around',
           }} />
         <View style={styles.menuContent}>
+          <Text style={styles.menuItem}>Date:</Text>
+          <DatePicker
+            style={{ width: 250 }}
+            date={this.state.date}
+            mode="date"
+            placeholder="select date"
+            format="YYYY-MM-DD"
+            minDate="2000-01-01"
+            maxDate="2020-12-31"
+            confirmBtnText="Confirm"
+            cancelBtnText="Cancel"
+            customStyles={{
+              dateIcon: {
+                position: 'absolute',
+                left: 0,
+                top: 4,
+                marginLeft: 0
+              },
+              dateInput: {
+                marginLeft: 35,
+                color: 'white'
+              }
+              // ... You can check the source to find the other keys.
+            }}
+            onDateChange={(date) => { this.setState({ date: date }) }}
+          />
 
         </View>
       </View>
@@ -38,13 +70,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   menuItem: {
-    width: Dimensions.get('window').width,
-    borderColor: 'black',
-    backgroundColor: menuItemGray,
-    borderRadius: 5,
-    borderWidth: 2,
-    height: 80,
-    margin: 20,
+    color: 'white',
+    fontSize: 30,
+    paddingLeft: 10,
+    marginBottom: 5,
   },
   menuText: {
     marginTop: 10,
@@ -53,7 +82,7 @@ const styles = StyleSheet.create({
     color: '#d0d0d0',
     justifyContent: 'center',
     alignSelf: 'center'
-  }
+  },
 })
 
 export default AddSession
