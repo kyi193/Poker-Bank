@@ -4,6 +4,16 @@ import { Header } from 'react-native-elements'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { darkGray, backgroundGray, menuItemGray, limeGreen } from '../utils/colors'
 import DatePicker from 'react-native-datepicker'
+import { Entypo } from '@expo/vector-icons';
+
+function SubmitBtn({ onPress }) {
+  return (
+    <TouchableOpacity
+      onPress={onPress}>
+      <Entypo name="squared-plus" size={80} color={limeGreen} />
+    </TouchableOpacity>
+  )
+}
 
 class AddSession extends Component {
   constructor(props) {
@@ -15,6 +25,15 @@ class AddSession extends Component {
       total: null,
     }
   }
+  createTwoButtonAlert = () =>
+    Alert.alert(
+      "Error",
+      "Please fill all sections in!",
+      [
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
 
   onChangeBuyIn = (buyIn) => {
     this.setState(() => ({
@@ -27,6 +46,13 @@ class AddSession extends Component {
     }))
   }
 
+  submitCard = () => {
+    const { date, buyIn, cashOut } = this.state;
+    if (date.length < 1 || buyIn.length < 1 || cashOut < 1) {
+      this.createTwoButtonAlert()
+      return
+    }
+  }
 
   render() {
     console.debug("THE DATE: ", this.state.date)
@@ -84,6 +110,8 @@ class AddSession extends Component {
             onChangeText={text => this.onChangeCashOut(text)}
             value={this.state.cashOut}
           />
+          <SubmitBtn onPress={this.submitCard} />
+          <Text style={styles.menuItem}>Add Session!</Text>
         </View>
       </View>
     )
