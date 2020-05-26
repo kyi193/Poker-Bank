@@ -72,14 +72,14 @@ class AddSession extends Component {
           />
           <Text style={styles.menuItem}>Buy-In:</Text>
           <TextInput
-            style={{ width: 215, height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 25, marginLeft: 35, color: 'white' }}
+            style={{ width: 215, height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 25, marginLeft: 35, color: 'white', paddingLeft: 10 }}
             keyboardType='numeric'
             onChangeText={text => this.onChangeBuyIn(text)}
             value={this.state.buyIn}
           />
           <Text style={styles.menuItem}>Cash-Out:</Text>
           <TextInput
-            style={{ width: 215, height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 25, marginLeft: 35, color: 'white' }}
+            style={{ width: 215, height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 25, marginLeft: 35, color: 'white', paddingLeft: 10 }}
             keyboardType='numeric'
             onChangeText={text => this.onChangeCashOut(text)}
             value={this.state.cashOut}
