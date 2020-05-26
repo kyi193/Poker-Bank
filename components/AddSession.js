@@ -5,6 +5,9 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { darkGray, backgroundGray, menuItemGray, limeGreen } from '../utils/colors'
 import DatePicker from 'react-native-datepicker'
 import { Entypo } from '@expo/vector-icons';
+import { addSession } from '../actions'
+import { generateUID } from '../utils/helpers'
+import { connect } from 'react-redux'
 
 function SubmitBtn({ onPress }) {
   return (
@@ -48,10 +51,17 @@ class AddSession extends Component {
 
   submitCard = () => {
     const { date, buyIn, cashOut } = this.state;
+    const { dispatch } = this.props
+    const sessionID = generateUID()
     if (date.length < 1 || buyIn.length < 1 || cashOut < 1) {
       this.createTwoButtonAlert()
       return
     }
+    const sessionInfo = {
+      date: date,
+      result: cashOut - buyIn,
+    }
+    dispatch(addSession(sessionID, sessionInfo))
   }
 
   render() {
@@ -144,4 +154,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default AddSession
+export default connect()(AddSession)
