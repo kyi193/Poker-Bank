@@ -21,7 +21,9 @@ class MainMenu extends Component {
             justifyContent: 'space-around',
           }} />
         <View style={styles.menuContent}>
-          <TouchableOpacity style={styles.menuItem}>
+          <TouchableOpacity
+            style={styles.menuItem}
+            onPress={() => this.props.navigation.navigate('Add A Session')}>
             <Text style={styles.menuText}>Add a Session</Text>
             <Entypo
               style={{ alignSelf: 'center' }}
