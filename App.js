@@ -7,6 +7,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import middleware from './middleware';
 import MainMenu from './components/MainMenu'
 import DummyChart from './components/DummyChart'
+
 export default class App extends React.Component {
   render() {
     return (

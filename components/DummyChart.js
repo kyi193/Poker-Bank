@@ -13,19 +13,19 @@ class DummyChart extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Sessions Graph</Text>
+        <Text>Monthly Results</Text>
         <LineChart
           data={{
-            labels: ["January", "February", "March", "April", "May", "June"],
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
             datasets: [
               {
                 data: [
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100
+                  500,
+                  -474,
+                  1324,
+                  2840,
+                  -1835,
+                  683
                 ],
               }
             ]
@@ -33,7 +33,6 @@ class DummyChart extends Component {
           width={Dimensions.get("window").width} // from react-native
           height={220}
           yAxisLabel="$"
-          yAxisSuffix="k"
           yAxisInterval={1} // optional, defaults to 1
           chartConfig={{
             backgroundGradientFrom: "#1E2923",
@@ -42,8 +41,8 @@ class DummyChart extends Component {
             backgroundGradientToOpacity: 0.5,
             color: (opacity = 1) => `rgba(104, 104, 104, ${opacity})`,
             strokeWidth: 2, // optional, default 3
-            barPercentage: 0.5,
-            useShadowColorFromDataset: false // optional
+            barPercentage: .5,
+            useShadowColorFromDataset: true // optional
           }}
           bezier
           style={{
