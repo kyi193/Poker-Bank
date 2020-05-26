@@ -8,8 +8,26 @@ import DatePicker from 'react-native-datepicker'
 class AddSession extends Component {
   constructor(props) {
     super(props)
-    this.state = { date: '' }
+    this.state = {
+      date: '',
+      buyIn: null,
+      cashOut: null,
+      total: null,
+    }
   }
+
+  onChangeBuyIn = (buyIn) => {
+    this.setState(() => ({
+      buyIn,
+    }))
+  }
+  onChangeCashOut = (cashOut) => {
+    this.setState(() => ({
+      cashOut,
+    }))
+  }
+
+
   render() {
     console.debug("THE DATE: ", this.state.date)
     return (
@@ -28,7 +46,7 @@ class AddSession extends Component {
         <View style={styles.menuContent}>
           <Text style={styles.menuItem}>Date:</Text>
           <DatePicker
-            style={{ width: 250 }}
+            style={{ width: 250, marginBottom: 20 }}
             date={this.state.date}
             mode="date"
             placeholder="select date"
@@ -52,7 +70,20 @@ class AddSession extends Component {
             }}
             onDateChange={(date) => { this.setState({ date: date }) }}
           />
-
+          <Text style={styles.menuItem}>Buy-In:</Text>
+          <TextInput
+            style={{ width: 215, height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 25, marginLeft: 35, color: 'white' }}
+            keyboardType='numeric'
+            onChangeText={text => this.onChangeBuyIn(text)}
+            value={this.state.buyIn}
+          />
+          <Text style={styles.menuItem}>Cash-Out:</Text>
+          <TextInput
+            style={{ width: 215, height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 25, marginLeft: 35, color: 'white' }}
+            keyboardType='numeric'
+            onChangeText={text => this.onChangeCashOut(text)}
+            value={this.state.cashOut}
+          />
         </View>
       </View>
     )
