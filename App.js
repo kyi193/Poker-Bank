@@ -6,7 +6,7 @@ import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import middleware from './middleware';
 import MainMenu from './components/MainMenu'
-import DummyChart from './components/DummyChart'
+import Graph from './components/Graph'
 import AddSession from './components/AddSession'
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -71,6 +71,15 @@ const MainNav = () => (
     <Stack.Screen
       name="Add A Session"
       component={AddSession}
+      options={{
+        headerTintColor: white,
+        headerStyle: {
+          backgroundColor: backgroundGray,
+        }
+      }} />
+    <Stack.Screen
+      name="Graph"
+      component={Graph}
       options={{
         headerTintColor: white,
         headerStyle: {

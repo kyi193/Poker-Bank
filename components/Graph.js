@@ -9,7 +9,7 @@ import {
   StackedBarChart
 } from "react-native-chart-kit";
 
-class DummyChart extends Component {
+class Graph extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -61,4 +61,4 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   }
 })
-export default DummyChart
+export default Graph
