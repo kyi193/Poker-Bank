@@ -14,7 +14,7 @@ class Graph extends Component {
     const { results, label, title } = this.props.route.params
     return (
       <View style={styles.container}>
-        <Text>{title}</Text>
+        <Text style={{ fontSize: 25 }}>{title}</Text>
         <LineChart
           data={{
             labels: label,
@@ -24,8 +24,8 @@ class Graph extends Component {
               }
             ]
           }}
-          width={Dimensions.get("window").width} // from react-native
-          height={220}
+          width={Dimensions.get("window").width}  // from react-native
+          height={500}
           yAxisLabel="$"
           yAxisInterval={1} // optional, defaults to 1
           chartConfig={{
@@ -38,7 +38,6 @@ class Graph extends Component {
             barPercentage: .5,
             useShadowColorFromDataset: true // optional
           }}
-          bezier
           style={{
             marginVertical: 8,
             borderRadius: 16
