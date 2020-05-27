@@ -5,9 +5,13 @@ import { darkGray, backgroundGray, menuItemGray, limeGreen } from '../utils/colo
 import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { connect } from 'react-redux';
 
 class GraphMenu extends Component {
   render() {
+    const { sortedBySession, sortedByDate } = this.props
+    console.debug("BY NEWEST SESSION: ", sortedBySession)
+    console.debug("BY NEWEST DATE: ", sortedByDate)
     return (
       <View style={styles.container}>
         <Header
@@ -38,7 +42,32 @@ class GraphMenu extends Component {
   }
 }
 
-export default GraphMenu
+function mapStateToProps(state) {
+  const sessions = state;
+  const sortedBySession = [];
+  const sortedByDate = [];
+  //create a list of arrays of arrays each containing id and either session # or date
+  for (const session in sessions) {
+    sortedBySession.push(sessions[session].session)
+  }
+  for (const session in sessions) {
+    sortedByDate.push(sessions[session].date)
+  }
+  sortedBySession.sort(function (a, b) {
+    return a - b;
+  });
+  sortedByDate.sort(function (a, b) {
+    return new Date(a) - new Date(b);
+  });
+  console.debug("By sessionn: ", sortedBySession)
+  console.debug("By datee: ", sortedByDate)
+
+  return {
+    sortedByDate,
+    sortedBySession,
+  }
+}
+export default connect(mapStateToProps)(GraphMenu)
 
 const styles = StyleSheet.create({
   container: {

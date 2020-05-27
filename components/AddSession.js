@@ -78,7 +78,6 @@ class AddSession extends Component {
   }
 
   render() {
-    console.debug("THE DATE: ", this.state.date)
     return (
       <View style={styles.container}>
         <Header
