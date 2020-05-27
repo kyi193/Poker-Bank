@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, Platform, Alert, Dimensions } from 'react-native'
 import { Header } from 'react-native-elements'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { darkGray, backgroundGray, pink, limeGreen } from '../utils/colors'
+import { darkGray, backgroundGray, pink, limeGreen, offYellow } from '../utils/colors'
 import DatePicker from 'react-native-datepicker'
 import { Entypo } from '@expo/vector-icons';
 import { addSession } from '../actions'
@@ -13,15 +13,16 @@ function SubmitBtn({ onPress }) {
   return (
     <TouchableOpacity
       onPress={onPress}>
-      <Entypo name="squared-plus" size={60} color={limeGreen} />
+      <Entypo name="squared-plus" size={62} color={limeGreen} />
     </TouchableOpacity>
   )
 }
 function HomeBtn({ onPress }) {
   return (
     <TouchableOpacity
+      style={{ borderWidth: 5, borderRadius: 15, backgroundColor: darkGray, padding: 5 }}
       onPress={onPress}>
-      <Entypo name="back" size={60} color={pink} />
+      <Entypo name="back" size={35} color={offYellow} />
     </TouchableOpacity>
   )
 }
@@ -139,11 +140,13 @@ class AddSession extends Component {
             marginTop: 200,
           }}>
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <HomeBtn onPress={this.toHome} />
-              <Text style={{ fontSize: 20, color: 'white' }}>Return to Home</Text>
+              <HomeBtn
+                onPress={this.toHome} />
+              <Text style={{ fontSize: 20, color: 'white', marginTop: 10 }}>Return to Home</Text>
             </View>
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <SubmitBtn onPress={this.submitCard} />
+              <SubmitBtn
+                onPress={this.submitCard} />
               <Text style={{ fontSize: 20, color: 'white' }}>Add Session!</Text>
             </View>
           </View>
