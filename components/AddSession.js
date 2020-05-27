@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, Platform, Alert, Dimensions } from 'react-native'
 import { Header } from 'react-native-elements'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { darkGray, backgroundGray, menuItemGray, limeGreen } from '../utils/colors'
+import { darkGray, backgroundGray, pink, limeGreen } from '../utils/colors'
 import DatePicker from 'react-native-datepicker'
 import { Entypo } from '@expo/vector-icons';
 import { addSession } from '../actions'
@@ -13,7 +13,15 @@ function SubmitBtn({ onPress }) {
   return (
     <TouchableOpacity
       onPress={onPress}>
-      <Entypo name="squared-plus" size={80} color={limeGreen} />
+      <Entypo name="squared-plus" size={60} color={limeGreen} />
+    </TouchableOpacity>
+  )
+}
+function HomeBtn({ onPress }) {
+  return (
+    <TouchableOpacity
+      onPress={onPress}>
+      <Entypo name="back" size={60} color={pink} />
     </TouchableOpacity>
   )
 }
@@ -62,6 +70,10 @@ class AddSession extends Component {
       result: cashOut - buyIn,
     }
     dispatch(addSession(sessionID, sessionInfo))
+  }
+
+  toHome = () => {
+    this.props.navigation.navigate('Menu')
   }
 
   render() {
@@ -120,8 +132,21 @@ class AddSession extends Component {
             onChangeText={text => this.onChangeCashOut(text)}
             value={this.state.cashOut}
           />
-          <SubmitBtn onPress={this.submitCard} />
-          <Text style={styles.menuItem}>Add Session!</Text>
+          <View style={{
+            flexDirection: "row",
+            width: Dimensions.get('window').width,
+            justifyContent: 'space-around',
+            marginTop: 200,
+          }}>
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+              <HomeBtn onPress={this.toHome} />
+              <Text style={{ fontSize: 20, color: 'white' }}>Return to Home</Text>
+            </View>
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+              <SubmitBtn onPress={this.submitCard} />
+              <Text style={{ fontSize: 20, color: 'white' }}>Add Session!</Text>
+            </View>
+          </View>
         </View>
       </View>
     )
