@@ -11,22 +11,16 @@ import {
 
 class Graph extends Component {
   render() {
+    const { results, label, title } = this.props.route.params
     return (
       <View style={styles.container}>
-        <Text>Monthly Results</Text>
+        <Text>{title}</Text>
         <LineChart
           data={{
-            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+            labels: label,
             datasets: [
               {
-                data: [
-                  500,
-                  -474,
-                  1324,
-                  2840,
-                  -1835,
-                  683
-                ],
+                data: results,
               }
             ]
           }}

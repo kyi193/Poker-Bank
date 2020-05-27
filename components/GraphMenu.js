@@ -6,12 +6,11 @@ import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
+import Graph from './Graph';
 
 class GraphMenu extends Component {
   render() {
-    const { sortedBySession, sortedByDate } = this.props
-    console.debug("BY NEWEST SESSION: ", sortedBySession)
-    console.debug("BY NEWEST DATE: ", sortedByDate)
+    const { sortedBySession, sortedByDate, results } = this.props
     return (
       <View style={styles.container}>
         <Header
@@ -28,12 +27,12 @@ class GraphMenu extends Component {
         <View style={styles.menuContent}>
           <TouchableOpacity
             style={styles.menuItem}
-            onPress={() => this.props.navigation.navigate('Graph', { name: 'Kevin' })}>
+            onPress={() => this.props.navigation.navigate('Graph', { results: results, label: sortedBySession, title: "Results by Session" })}>
             <Text style={styles.menuText}>Chart by Session</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.menuItem}
-            onPress={() => this.props.navigation.navigate('Graph')}>
+            onPress={() => this.props.navigation.navigate('Graph', { results: results, label: sortedByDate, title: "Results by Date" })}>
             <Text style={styles.menuText}>Chart by Date</Text>
           </TouchableOpacity>
         </View>
@@ -46,6 +45,11 @@ function mapStateToProps(state) {
   const sessions = state;
   const sortedBySession = [];
   const sortedByDate = [];
+  const results = [];
+
+  for (const session in sessions) {
+    results.push(sessions[session].result)
+  }
   //create a list of arrays of arrays each containing id and either session # or date
   for (const session in sessions) {
     sortedBySession.push(sessions[session].session)
@@ -59,12 +63,11 @@ function mapStateToProps(state) {
   sortedByDate.sort(function (a, b) {
     return new Date(a) - new Date(b);
   });
-  console.debug("By sessionn: ", sortedBySession)
-  console.debug("By datee: ", sortedByDate)
 
   return {
     sortedByDate,
     sortedBySession,
+    results,
   }
 }
 export default connect(mapStateToProps)(GraphMenu)
