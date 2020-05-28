@@ -6,6 +6,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 import { retrieveSessions } from '../utils/api'
 import { receiveSessions } from '../actions'
+import moment from 'moment'
 
 class GraphMenu extends Component {
   componentDidMount() {
@@ -46,7 +47,7 @@ class GraphMenu extends Component {
             onPress={() => this.props.navigation.navigate('Graph',
               {
                 results: sortedSessions.map((session) => session.cumulativeWinnings),
-                label: sortedSessions.map((session) => session.date),
+                label: sortedSessions.map((session) => moment(session.date).format('MMMM ').substring(0, 3)),
                 title: "Results by Date"
               })}>
             <Text style={styles.menuText}>Chart by Date</Text>
