@@ -35,7 +35,7 @@ class GraphMenu extends Component {
             style={styles.menuItem}
             onPress={() => this.props.navigation.navigate('Graph',
               {
-                results: sortedSessions.map((session) => session.result),
+                results: sortedSessions.map((session) => session.cumulativeWinnings),
                 label: Object.keys(sortedSessions).map((index) => parseInt(index) + 1),
                 title: "Results by Date"
               })}>
@@ -45,7 +45,7 @@ class GraphMenu extends Component {
             style={styles.menuItem}
             onPress={() => this.props.navigation.navigate('Graph',
               {
-                results: sortedSessions.map((session) => session.result),
+                results: sortedSessions.map((session) => session.cumulativeWinnings),
                 label: sortedSessions.map((session) => session.date),
                 title: "Results by Date"
               })}>
@@ -58,17 +58,22 @@ class GraphMenu extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log("Graph State: ", state)
   const sessions = Object.assign({}, state);
   const sortedSessions = [];
+  if (Object.keys(state).length > 0) {
+    for (const sessionId in sessions) {
+      sortedSessions.push(sessions[sessionId])
+    }
+    sortedSessions.sort(function (a, b) {
+      return new Date(a.date) - new Date(b.date);
+    });
+    sortedSessions[0].cumulativeWinnings = sortedSessions[0].result
+    for (let i = 1; i < sortedSessions.length; i++) {
+      sortedSessions[i].cumulativeWinnings = sortedSessions[i].result + sortedSessions[i - 1].cumulativeWinnings
+    }
+    console.log("WINNINGS: ", sortedSessions)
 
-  for (const sessionId in sessions) {
-    sortedSessions.push(sessions[sessionId])
   }
-  sortedSessions.sort(function (a, b) {
-    return new Date(a.date) - new Date(b.date);
-  });
-
   return {
     sortedSessions,
     state,

@@ -71,6 +71,7 @@ class AddSession extends Component {
       id: sessionID,
       date: date,
       result: result,
+      cumulativeWinnings: 0,
     }
     dispatch(addSession(sessionID, sessionInfo))
     saveSession(sessionID, sessionInfo)
