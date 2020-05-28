@@ -5,6 +5,7 @@ import { darkGray, backgroundGray, menuItemGray, limeGreen } from '../utils/colo
 import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { connect } from 'react-redux'
 class MainMenu extends Component {
   render() {
     return (
@@ -53,7 +54,7 @@ class MainMenu extends Component {
   }
 }
 
-export default MainMenu
+export default connect()(MainMenu)
 
 const styles = StyleSheet.create({
   container: {

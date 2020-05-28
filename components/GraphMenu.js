@@ -7,10 +7,17 @@ import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 import Graph from './Graph';
+import { retrieveSessions, clearSessions } from '../utils/api'
+import { receiveSessions } from '../actions'
 
 class GraphMenu extends Component {
+  componentDidMount() {
+    const { dispatch } = this.props
+    retrieveSessions()
+      .then(sessions => dispatch(receiveSessions(sessions)))
+  }
   render() {
-    const { sortedBySession, sortedByDate, results } = this.props
+    const { sortedSessions } = this.props
     return (
       <View style={styles.container}>
         <Header
@@ -25,14 +32,14 @@ class GraphMenu extends Component {
             justifyContent: 'space-around',
           }} />
         <View style={styles.menuContent}>
-          <TouchableOpacity
+          {/* <TouchableOpacity
             style={styles.menuItem}
             onPress={() => this.props.navigation.navigate('Graph', { results: results, label: sortedBySession, title: "Results by Session" })}>
             <Text style={styles.menuText}>Chart by Session</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <TouchableOpacity
             style={styles.menuItem}
-            onPress={() => this.props.navigation.navigate('Graph', { results: results, label: sortedByDate, title: "Results by Date" })}>
+            onPress={() => this.props.navigation.navigate('Graph', { results: sortedSessions.map((session) => session.result), label: sortedSessions.map((session) => session.date), title: "Results by Date" })}>
             <Text style={styles.menuText}>Chart by Date</Text>
           </TouchableOpacity>
         </View>
@@ -42,32 +49,19 @@ class GraphMenu extends Component {
 }
 
 function mapStateToProps(state) {
-  const sessions = state;
-  const sortedBySession = [];
-  const sortedByDate = [];
-  const results = [];
+  const sessions = Object.assign({}, state);
+  const sortedSessions = [];
 
-  for (const session in sessions) {
-    results.push(sessions[session].result)
+  for (const sessionId in sessions) {
+    sortedSessions.push(sessions[sessionId])
   }
   //create a list of arrays of arrays each containing id and either session # or date
-  for (const session in sessions) {
-    sortedBySession.push(sessions[session].session)
-  }
-  for (const session in sessions) {
-    sortedByDate.push(sessions[session].date)
-  }
-  sortedBySession.sort(function (a, b) {
-    return a - b;
-  });
-  sortedByDate.sort(function (a, b) {
-    return new Date(a) - new Date(b);
+  sortedSessions.sort(function (a, b) {
+    return new Date(a.date) - new Date(b.date);
   });
 
   return {
-    sortedByDate,
-    sortedBySession,
-    results,
+    sortedSessions
   }
 }
 export default connect(mapStateToProps)(GraphMenu)

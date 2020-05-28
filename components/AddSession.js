@@ -8,7 +8,7 @@ import { Entypo } from '@expo/vector-icons';
 import { addSession } from '../actions'
 import { generateUID } from '../utils/helpers'
 import { connect } from 'react-redux'
-
+import { saveSession } from '../utils/api'
 function SubmitBtn({ onPress }) {
   return (
     <TouchableOpacity
@@ -61,6 +61,7 @@ class AddSession extends Component {
   submitCard = () => {
     const { date, buyIn, cashOut } = this.state;
     const { dispatch } = this.props
+    const result = cashOut - buyIn
     const sessionID = generateUID()
     if (date.length < 1 || buyIn.length < 1 || cashOut < 1) {
       this.createTwoButtonAlert()
@@ -68,9 +69,10 @@ class AddSession extends Component {
     }
     const sessionInfo = {
       date: date,
-      result: cashOut - buyIn,
+      result: result,
     }
     dispatch(addSession(sessionID, sessionInfo))
+    saveSession(sessionID, sessionInfo)
   }
 
   toHome = () => {
@@ -180,5 +182,10 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   },
 })
-
-export default connect()(AddSession)
+function mapStateToProps(state) {
+  const session = Object.keys(state).length + 1
+  return {
+    session
+  }
+}
+export default connect(mapStateToProps)(AddSession)

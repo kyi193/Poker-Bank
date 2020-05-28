@@ -15,6 +15,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { lightGray, white, steelBlue, darkBlue, backgroundGray } from './utils/colors'
 import { SimpleLineIcons } from '@expo/vector-icons';
 import GraphMenu from './components/GraphMenu'
+import Settings from './components/Settings'
+import { AntDesign } from '@expo/vector-icons'
 
 const Tabs = createBottomTabNavigator()
 
@@ -28,10 +30,13 @@ const TabNav = () => (
           icon = (
             <FontAwesome name="plus-square" size={size} color={color} />
           );
-        }
-        if (route.name === "Graphs") {
+        } else if (route.name === "Graphs") {
           icon = (
             <SimpleLineIcons name="graph" size={size} color={color} />
+          );
+        } else if (route.name === "Settings") {
+          icon = (
+            <AntDesign name="setting" size={size} color={color} />
           );
         }
         return icon;
@@ -57,6 +62,7 @@ const TabNav = () => (
   >
     <Tabs.Screen name="Menu" component={MainMenu} />
     <Tabs.Screen name="Graphs" component={GraphMenu} />
+    <Tabs.Screen name="Settings" component={Settings} />
   </Tabs.Navigator>
 );
 

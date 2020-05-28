@@ -12,39 +12,45 @@ import {
 class Graph extends Component {
   render() {
     const { results, label, title } = this.props.route.params
-    return (
-      <View style={styles.container}>
-        <Text style={{ fontSize: 25 }}>{title}</Text>
-        <LineChart
-          data={{
-            labels: label,
-            datasets: [
-              {
-                data: results,
-              }
-            ]
-          }}
-          width={Dimensions.get("window").width}  // from react-native
-          height={500}
-          yAxisLabel="$"
-          yAxisInterval={1} // optional, defaults to 1
-          chartConfig={{
-            backgroundGradientFrom: "#1E2923",
-            backgroundGradientFromOpacity: 0,
-            backgroundGradientTo: "#08130D",
-            backgroundGradientToOpacity: 0.5,
-            color: (opacity = 1) => `rgba(104, 104, 104, ${opacity})`,
-            strokeWidth: 2, // optional, default 3
-            barPercentage: .5,
-            useShadowColorFromDataset: true // optional
-          }}
-          style={{
-            marginVertical: 8,
-            borderRadius: 16
-          }}
-        />
-      </View>
-    )
+    return ((results.length > 0 && label.length > 0)
+      ? (
+        <View style={styles.container}>
+          <Text style={{ fontSize: 25 }}>{title}</Text>
+          <LineChart
+            data={{
+              labels: label,
+              datasets: [
+                {
+                  data: results,
+                }
+              ]
+            }}
+            width={Dimensions.get("window").width}  // from react-native
+            height={500}
+            yAxisLabel="$"
+            yAxisInterval={1} // optional, defaults to 1
+            chartConfig={{
+              backgroundGradientFrom: "#1E2923",
+              backgroundGradientFromOpacity: 0,
+              backgroundGradientTo: "#08130D",
+              backgroundGradientToOpacity: 0.5,
+              color: (opacity = 1) => `rgba(104, 104, 104, ${opacity})`,
+              strokeWidth: 2, // optional, default 3
+              barPercentage: .5,
+              useShadowColorFromDataset: true // optional
+            }}
+            style={{
+              marginVertical: 8,
+              borderRadius: 16
+            }}
+          />
+        </View>
+      )
+      : (
+        <View style={styles.container}>
+          <Text>Looks like you have no sessions logged in</Text>
+        </View>
+      ))
   }
 }
 const styles = StyleSheet.create({
