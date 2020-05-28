@@ -1,4 +1,4 @@
-import { ADD_SESSION, RECEIVE_SESSIONS } from '../actions'
+import { ADD_SESSION, RECEIVE_SESSIONS, CLEAR_SESSIONS } from '../actions'
 let newState;
 const sessions = (state = {}, action) => {
   switch (action.type) {
@@ -11,6 +11,8 @@ const sessions = (state = {}, action) => {
       newState = { ...state }
       newState[action.id] = action.sessionInfo
       return newState;
+    case CLEAR_SESSIONS:
+      return {}
     default:
       return state
   }

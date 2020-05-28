@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
 import { clearSessions } from '../utils/api'
 import { connect } from 'react-redux'
-import { blue, white, tomatoRed } from '../utils/colors'
+import { Header } from 'react-native-elements'
+import { darkGray, backgroundGray, menuItemGray, limeGreen, tomatoRed, blue, white } from '../utils/colors'
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { clearSession } from '../actions'
 
 
 function ClearBtn({ onPress }) {
@@ -12,21 +15,59 @@ function ClearBtn({ onPress }) {
         ? styles.iosSubmitBtn
         : styles.androidSubmitBtn}
       onPress={onPress}>
-      <Text style={styles.submitBtnText}>CLEAR ALL DECKS</Text>
+      <Text style={styles.submitBtnText}>CLEAR SESSIONS</Text>
       <Text style={styles.submitBtnText}>(Warning: This is permanent!)</Text>
     </TouchableOpacity>
   )
 }
+
+function ClearedBtn({ onPress }) {
+  return (
+    <View
+      style={Platform.OS === 'ios'
+        ? styles.iosSubmitBtn
+        : styles.androidSubmitBtn}
+    >
+      <Text style={styles.submitBtnText}>Sessions Cleared</Text>
+    </View>
+  )
+}
 class Settings extends Component {
-  clearDeck = () => {
-    clearSessions()
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      clearToggle: false
+    }
   }
+  clearDeck = () => {
+    const { dispatch } = this.props
+    dispatch(clearSession(null))
+    clearSessions()
+    this.setState(() => ({
+      clearToggle: true
+    }))
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={{ fontSize: 40, paddingBottom: 200 }}>Settings</Text>
-        <Text style={{ alignSelf: 'start', fontSize: 20, paddingBottom: 5 }}>           Clear All Data</Text>
-        <ClearBtn onPress={this.clearDeck} />
+        <Header
+          leftComponent={<MaterialCommunityIcons
+            name="poker-chip"
+            size={30}
+            color='white'
+          />}
+          centerComponent={{ text: 'Main Menu', style: { color: '#fff', fontSize: 24 } }}
+          containerStyle={{
+            backgroundColor: darkGray,
+            justifyContent: 'space-around',
+          }} />
+        <Text style={{ alignSelf: 'start', fontSize: 20, paddingBottom: 5, color: 'white', marginTop: 20 }}>           Clear All Data</Text>
+        {this.state.clearToggle === false
+          ? <ClearBtn onPress={this.clearDeck} />
+          : <ClearedBtn />}
+
       </View>
     )
   }
@@ -36,6 +77,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
+    backgroundColor: backgroundGray
   },
   iosSubmitBtn: {
     backgroundColor: tomatoRed,
