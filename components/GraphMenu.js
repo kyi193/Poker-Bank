@@ -9,9 +9,11 @@ import { receiveSessions } from '../actions'
 
 class GraphMenu extends Component {
   componentDidMount() {
-    const { dispatch } = this.props
-    retrieveSessions()
-      .then(sessions => dispatch(receiveSessions(sessions)))
+    const { dispatch, state } = this.props
+    if (Object.keys(state).length < 1) {
+      retrieveSessions()
+        .then(sessions => dispatch(receiveSessions(sessions)))
+    }
   }
   render() {
     const { sortedSessions } = this.props
@@ -68,6 +70,7 @@ function mapStateToProps(state) {
 
   return {
     sortedSessions,
+    state,
   }
 }
 export default connect(mapStateToProps)(GraphMenu)
