@@ -68,6 +68,7 @@ class AddSession extends Component {
       return
     }
     const sessionInfo = {
+      id: sessionID,
       date: date,
       result: result,
     }

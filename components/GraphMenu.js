@@ -58,6 +58,7 @@ class GraphMenu extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log("Graph State: ", state)
   const sessions = Object.assign({}, state);
   const sortedSessions = [];
 
