@@ -29,8 +29,8 @@ class SessionList extends Component {
   render() {
     const { state, sortedSessions } = this.props
     console.log("state: ", state)
-    return (
-      <View style={styles.container}>
+    return ((sortedSessions.length > 0)
+      ? <View style={styles.container}>
         <Header
           leftComponent={<MaterialCommunityIcons
             name="poker-chip"
@@ -65,6 +65,22 @@ class SessionList extends Component {
           </View>
         }
 
+      </View>
+      : <View style={{ flex: 1, backgroundColor: backgroundGray }}>
+        <Header
+          leftComponent={<MaterialCommunityIcons
+            name="poker-chip"
+            size={30}
+            color='white'
+          />}
+          centerComponent={{ text: 'Sessions', style: { color: '#fff', fontSize: 24 } }}
+          containerStyle={{
+            backgroundColor: darkGray,
+            justifyContent: 'space-around',
+          }} />
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text style={{ fontSize: 30, color: 'white', textAlign: 'center' }}>Looks like you have no sessions logged in</Text>
+        </View>
       </View>
     )
   }

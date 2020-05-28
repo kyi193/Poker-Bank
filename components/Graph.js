@@ -42,7 +42,7 @@ class Graph extends Component {
       )
       : (
         <View style={styles.container}>
-          <Text>Looks like you have no sessions logged in</Text>
+          <Text style={{ fontSize: 30, color: 'white', textAlign: 'center' }}>Looks like you have no sessions logged in</Text>
         </View>
       ))
   }
