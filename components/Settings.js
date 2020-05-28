@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
 import { clearSessions } from '../utils/api'
 import { connect } from 'react-redux'
-import { clearDeck } from '../actions'
 import { blue, white, tomatoRed } from '../utils/colors'
 
 

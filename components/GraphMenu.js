@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native'
 import { Header } from 'react-native-elements'
-import { darkGray, backgroundGray, menuItemGray, limeGreen } from '../utils/colors'
-import { Entypo } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
+import { darkGray, backgroundGray, menuItemGray } from '../utils/colors'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
-import Graph from './Graph';
-import { retrieveSessions, clearSessions } from '../utils/api'
+import { retrieveSessions } from '../utils/api'
 import { receiveSessions } from '../actions'
 
 class GraphMenu extends Component {
@@ -17,7 +14,7 @@ class GraphMenu extends Component {
       .then(sessions => dispatch(receiveSessions(sessions)))
   }
   render() {
-    const { sortedSessions, sortedSessionNum } = this.props
+    const { sortedSessions } = this.props
     return (
       <View style={styles.container}>
         <Header
@@ -34,12 +31,22 @@ class GraphMenu extends Component {
         <View style={styles.menuContent}>
           <TouchableOpacity
             style={styles.menuItem}
-            onPress={() => this.props.navigation.navigate('Graph', { results: sortedSessions.map((session) => session.result), label: sortedSessionNum, title: "Results by Date" })}>
+            onPress={() => this.props.navigation.navigate('Graph',
+              {
+                results: sortedSessions.map((session) => session.result),
+                label: Object.keys(sortedSessions).map((index) => parseInt(index) + 1),
+                title: "Results by Date"
+              })}>
             <Text style={styles.menuText}>Chart by Session</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.menuItem}
-            onPress={() => this.props.navigation.navigate('Graph', { results: sortedSessions.map((session) => session.result), label: sortedSessions.map((session) => session.date), title: "Results by Date" })}>
+            onPress={() => this.props.navigation.navigate('Graph',
+              {
+                results: sortedSessions.map((session) => session.result),
+                label: sortedSessions.map((session) => session.date),
+                title: "Results by Date"
+              })}>
             <Text style={styles.menuText}>Chart by Date</Text>
           </TouchableOpacity>
         </View>
@@ -51,23 +58,16 @@ class GraphMenu extends Component {
 function mapStateToProps(state) {
   const sessions = Object.assign({}, state);
   const sortedSessions = [];
-  let sessionNum = 1;
-  const sortedSessionNum = [];
-
 
   for (const sessionId in sessions) {
     sortedSessions.push(sessions[sessionId])
-    sortedSessionNum.push(sessionNum)
-    sessionNum += 1;
   }
-  //create a list of arrays of arrays each containing id and either session # or date
   sortedSessions.sort(function (a, b) {
     return new Date(a.date) - new Date(b.date);
   });
 
   return {
     sortedSessions,
-    sortedSessionNum,
   }
 }
 export default connect(mapStateToProps)(GraphMenu)

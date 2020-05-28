@@ -1,13 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, Dimensions, StyleSheet } from 'react-native'
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart
-} from "react-native-chart-kit";
+import { LineChart } from "react-native-chart-kit";
 
 class Graph extends Component {
   render() {

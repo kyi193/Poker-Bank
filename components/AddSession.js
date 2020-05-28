@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text, TouchableOpacity, TextInput, Platform, Alert, Dimensions } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, TextInput, Alert, Dimensions } from 'react-native'
 import { Header } from 'react-native-elements'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { darkGray, backgroundGray, pink, limeGreen, offYellow } from '../utils/colors'
+import { darkGray, backgroundGray, limeGreen, offYellow } from '../utils/colors'
 import DatePicker from 'react-native-datepicker'
 import { Entypo } from '@expo/vector-icons';
 import { addSession } from '../actions'
