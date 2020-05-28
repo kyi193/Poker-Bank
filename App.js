@@ -17,6 +17,7 @@ import { SimpleLineIcons } from '@expo/vector-icons';
 import GraphMenu from './components/GraphMenu'
 import Settings from './components/Settings'
 import { AntDesign } from '@expo/vector-icons'
+import SessionList from './components/SessionList'
 
 const Tabs = createBottomTabNavigator()
 
@@ -86,6 +87,15 @@ const MainNav = () => (
     <Stack.Screen
       name="Graph"
       component={Graph}
+      options={{
+        headerTintColor: white,
+        headerStyle: {
+          backgroundColor: backgroundGray,
+        }
+      }} />
+    <Stack.Screen
+      name="Session List"
+      component={SessionList}
       options={{
         headerTintColor: white,
         headerStyle: {

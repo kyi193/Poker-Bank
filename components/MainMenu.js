@@ -40,7 +40,10 @@ class MainMenu extends Component {
               size={24}
               color={limeGreen} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.menuItem}>
+          <TouchableOpacity
+            style={styles.menuItem}
+            onPress={() => this.props.navigation.navigate('Session List')}
+          >
             <Text style={styles.menuText}>All sessions</Text>
             <Ionicons
               style={{ alignSelf: 'center' }}
