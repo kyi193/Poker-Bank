@@ -1,9 +1,23 @@
 import React, { Component } from 'react'
-import { View, Text, Dimensions, StyleSheet } from 'react-native'
+import { View, Text, Dimensions, StyleSheet, TouchableOpacity } from 'react-native'
 import { LineChart } from "react-native-chart-kit";
-import { backGroundGray, backgroundGray } from '../utils/colors'
+import { Entypo } from '@expo/vector-icons';
+import { darkGray, backgroundGray, menuItemGray, offYellow } from '../utils/colors'
+
+function HomeBtn({ onPress }) {
+  return (
+    <TouchableOpacity
+      style={{ borderWidth: 5, borderRadius: 15, backgroundColor: darkGray, padding: 5 }}
+      onPress={onPress}>
+      <Entypo name="back" size={35} color={offYellow} />
+    </TouchableOpacity>
+  )
+}
 
 class Graph extends Component {
+  toHome = () => {
+    this.props.navigation.navigate('Menu')
+  }
   render() {
     const { results, label, title } = this.props.route.params
     return ((results.length > 0 && label.length > 0)
@@ -42,7 +56,9 @@ class Graph extends Component {
       )
       : (
         <View style={styles.container}>
-          <Text style={{ fontSize: 30, color: 'white', textAlign: 'center' }}>Looks like you have no sessions logged in</Text>
+          <Text style={{ fontSize: 30, color: 'white', textAlign: 'center', marginBottom: 20 }}>Looks like you have no sessions logged in</Text>
+          <HomeBtn onPress={this.toHome} />
+          <Text style={{ fontSize: 20, color: 'white', marginTop: 10 }}>Return to Home</Text>
         </View>
       ))
   }

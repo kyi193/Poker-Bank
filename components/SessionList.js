@@ -5,9 +5,20 @@ import { retrieveSessions } from '../utils/api'
 import { receiveSessions } from '../actions'
 import { Header } from 'react-native-elements'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { darkGray, backgroundGray, menuItemGray } from '../utils/colors'
 import moment from 'moment'
+import { Entypo } from '@expo/vector-icons';
+import { darkGray, backgroundGray, menuItemGray, offYellow } from '../utils/colors'
 
+
+function HomeBtn({ onPress }) {
+  return (
+    <TouchableOpacity
+      style={{ borderWidth: 5, borderRadius: 15, backgroundColor: darkGray, padding: 5 }}
+      onPress={onPress}>
+      <Entypo name="back" size={35} color={offYellow} />
+    </TouchableOpacity>
+  )
+}
 class SessionList extends Component {
   constructor(props) {
     super(props)
@@ -26,6 +37,9 @@ class SessionList extends Component {
         });
     }
   }
+  toHome = () => {
+    this.props.navigation.navigate('Menu')
+  }
   render() {
     const { state, sortedSessions } = this.props
     console.log("state: ", state)
@@ -42,29 +56,23 @@ class SessionList extends Component {
             backgroundColor: darkGray,
             justifyContent: 'space-around',
           }} />
-        {sortedSessions.length > 0
-          ? <View>
-            {sortedSessions.map(session =>
-              <View
-                key={session.id}
-                style={styles.sessionBox}>
-                <View style={{ justifyContent: 'space-between', backgroundColor: 'black', borderRadius: 5, width: 80 }}>
-                  <Text style={styles.infoHeaderDate}>{moment(session.date).format('dddd MMMM D Y').substring(0, 3)} </Text>
-                  <Text style={styles.infoHeader}>{moment(session.date).format('MMMM D ')}</Text>
-                  <Text style={styles.infoHeader}>{moment(session.date).format('Y ')}</Text>
-                </View>
-                <View style={{ justifyContent: 'space-between' }}>
-                  {session.result < 0
-                    ? <Text style={styles.negativeResult}>-${session.result * -1}</Text>
-                    : <Text style={styles.positiveResult}>+${session.result}</Text>}
-                </View>
-              </View>)}
-          </View>
-          : <View>
-            <Text>No Sessions Added</Text>
-          </View>
-        }
-
+        <View>
+          {sortedSessions.map(session =>
+            <View
+              key={session.id}
+              style={styles.sessionBox}>
+              <View style={{ justifyContent: 'space-between', backgroundColor: 'black', borderRadius: 5, width: 80 }}>
+                <Text style={styles.infoHeaderDate}>{moment(session.date).format('dddd MMMM D Y').substring(0, 3)} </Text>
+                <Text style={styles.infoHeader}>{moment(session.date).format('MMMM D ')}</Text>
+                <Text style={styles.infoHeader}>{moment(session.date).format('Y ')}</Text>
+              </View>
+              <View style={{ justifyContent: 'space-between' }}>
+                {session.result < 0
+                  ? <Text style={styles.negativeResult}>-${session.result * -1}</Text>
+                  : <Text style={styles.positiveResult}>+${session.result}</Text>}
+              </View>
+            </View>)}
+        </View>
       </View>
       : <View style={{ flex: 1, backgroundColor: backgroundGray }}>
         <Header
@@ -79,7 +87,9 @@ class SessionList extends Component {
             justifyContent: 'space-around',
           }} />
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text style={{ fontSize: 30, color: 'white', textAlign: 'center' }}>Looks like you have no sessions logged in</Text>
+          <Text style={{ fontSize: 30, color: 'white', textAlign: 'center', marginBottom: 20 }}>Looks like you have no sessions logged in</Text>
+          <HomeBtn onPress={this.toHome} />
+          <Text style={{ fontSize: 20, color: 'white', marginTop: 10 }}>Return to Home</Text>
         </View>
       </View>
     )
