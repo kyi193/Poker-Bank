@@ -17,7 +17,7 @@ class GraphMenu extends Component {
       .then(sessions => dispatch(receiveSessions(sessions)))
   }
   render() {
-    const { sortedSessions } = this.props
+    const { sortedSessions, sortedSessionNum } = this.props
     return (
       <View style={styles.container}>
         <Header
@@ -32,11 +32,11 @@ class GraphMenu extends Component {
             justifyContent: 'space-around',
           }} />
         <View style={styles.menuContent}>
-          {/* <TouchableOpacity
+          <TouchableOpacity
             style={styles.menuItem}
-            onPress={() => this.props.navigation.navigate('Graph', { results: results, label: sortedBySession, title: "Results by Session" })}>
+            onPress={() => this.props.navigation.navigate('Graph', { results: sortedSessions.map((session) => session.result), label: sortedSessionNum, title: "Results by Date" })}>
             <Text style={styles.menuText}>Chart by Session</Text>
-          </TouchableOpacity> */}
+          </TouchableOpacity>
           <TouchableOpacity
             style={styles.menuItem}
             onPress={() => this.props.navigation.navigate('Graph', { results: sortedSessions.map((session) => session.result), label: sortedSessions.map((session) => session.date), title: "Results by Date" })}>
@@ -51,9 +51,14 @@ class GraphMenu extends Component {
 function mapStateToProps(state) {
   const sessions = Object.assign({}, state);
   const sortedSessions = [];
+  let sessionNum = 1;
+  const sortedSessionNum = [];
+
 
   for (const sessionId in sessions) {
     sortedSessions.push(sessions[sessionId])
+    sortedSessionNum.push(sessionNum)
+    sessionNum += 1;
   }
   //create a list of arrays of arrays each containing id and either session # or date
   sortedSessions.sort(function (a, b) {
@@ -61,7 +66,8 @@ function mapStateToProps(state) {
   });
 
   return {
-    sortedSessions
+    sortedSessions,
+    sortedSessionNum,
   }
 }
 export default connect(mapStateToProps)(GraphMenu)
