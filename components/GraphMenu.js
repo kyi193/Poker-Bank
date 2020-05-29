@@ -9,13 +9,13 @@ import { receiveSessions } from '../actions'
 import moment from 'moment'
 
 class GraphMenu extends Component {
-  componentDidMount() {
-    const { dispatch, state } = this.props
-    if (Object.keys(state).length < 1) {
-      retrieveSessions()
-        .then(sessions => dispatch(receiveSessions(sessions)))
-    }
-  }
+  // componentDidMount() {
+  //   const { dispatch, state } = this.props
+  //   if (Object.keys(state).length < 1) {
+  //     retrieveSessions()
+  //       .then(sessions => dispatch(receiveSessions(sessions)))
+  //   }
+  // }
   render() {
     const { sortedSessions } = this.props
     return (

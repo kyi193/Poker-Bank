@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     backgroundColor: backgroundGray
   },
   iosSubmitBtn: {
-    backgroundColor: tomatoRed,
+    backgroundColor: 'red',
     padding: 10,
     borderRadius: 7,
     height: 60,

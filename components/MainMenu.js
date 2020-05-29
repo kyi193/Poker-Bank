@@ -6,7 +6,49 @@ import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { connect } from 'react-redux'
+import { retrieveSessions } from '../utils/api'
+import { receiveSessions } from '../actions'
+
 class MainMenu extends Component {
+  componentDidMount() {
+    const { dispatch } = this.props
+    const DEMO_MODE = true
+    if (DEMO_MODE) {
+      var date = new Date()
+      var sessions = {
+        0: {
+          cumulativeWinnings: 10000,
+          id: 0,
+          result: 0,
+          date: `${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${("0" + date.getDate()).slice(-2)}`
+        }
+      }
+      for (let i = 1; i < 100; i++) {
+        const win = Math.random() <= 0.75 ? true : false
+        const percentChange = (Math.random() * .3) + .1
+        let result;
+        const lastSession = sessions[i - 1]
+        if (win) {
+          result = lastSession.cumulativeWinnings * percentChange
+        } else {
+          result = -1 * lastSession.cumulativeWinnings * percentChange
+        }
+        date.setDate(date.getDate() + 1);
+        sessions[i] = {
+          cumulativeWinnings: lastSession.cumulativeWinnings + result,
+          result: result,
+          id: i,
+          date: `${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${("0" + date.getDate()).slice(-2)}`
+        }
+      }
+      dispatch(receiveSessions(sessions))
+    } else {
+      retrieveSessions()
+        .then(sessions => {
+          dispatch(receiveSessions(sessions))
+        })
+    }
+  }
   render() {
     return (
       <View style={styles.container}>

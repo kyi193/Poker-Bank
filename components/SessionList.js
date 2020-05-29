@@ -27,16 +27,16 @@ class SessionList extends Component {
       dataLoaded: false
     }
   }
-  componentDidMount() {
-    const { dispatch, state } = this.props
-    if (Object.keys(state).length < 1) {
-      retrieveSessions()
-        .then(sessions => dispatch(receiveSessions(sessions)))
-        .then(() => {
-          this.setState({ dataLoaded: true });
-        });
-    }
-  }
+  // componentDidMount() {
+  //   const { dispatch, state } = this.props
+  //   if (Object.keys(state).length < 1) {
+  //     retrieveSessions()
+  //       .then(sessions => dispatch(receiveSessions(sessions)))
+  //       .then(() => {
+  //         this.setState({ dataLoaded: true });
+  //       });
+  //   }
+  // }
   toHome = () => {
     this.props.navigation.navigate('Menu')
   }
