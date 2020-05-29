@@ -43,7 +43,7 @@ class Graph extends Component {
               backgroundGradientTo: "#08130D",
               backgroundGradientToOpacity: 0.5,
               color: (opacity = 0) => `rgba(255, 255, 255, ${opacity})`,
-              strokeWidth: 2, // optional, default 3
+              strokeWidth: 1, // optional, default 3
               barPercentage: .5,
               useShadowColorFromDataset: true,
               propsForDots: {
