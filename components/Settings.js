@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
-import { clearSessions } from '../utils/api'
+import { clearSessions, exportEmail } from '../utils/api'
 import { connect } from 'react-redux'
 import { Header } from 'react-native-elements'
 import { darkGray, backgroundGray, menuItemGray, limeGreen, tomatoRed, blue, white } from '../utils/colors'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { clearSession } from '../actions'
-
 
 function ClearBtn({ onPress }) {
   return (
@@ -17,6 +16,18 @@ function ClearBtn({ onPress }) {
       onPress={onPress}>
       <Text style={styles.submitBtnText}>CLEAR SESSIONS</Text>
       <Text style={styles.submitBtnText}>(Warning: This is permanent!)</Text>
+    </TouchableOpacity>
+  )
+}
+
+function ExportDataBtn({ onPress }) {
+  return (
+    <TouchableOpacity
+      style={Platform.OS === 'ios'
+        ? styles.iosSubmitBtn
+        : styles.androidSubmitBtn}
+      onPress={onPress}>
+      <Text style={styles.submitBtnText}>Export Data</Text>
     </TouchableOpacity>
   )
 }
@@ -49,6 +60,9 @@ class Settings extends Component {
     }))
   }
 
+  exportData = () => {
+
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -67,7 +81,7 @@ class Settings extends Component {
         {this.state.clearToggle === false
           ? <ClearBtn onPress={this.clearDeck} />
           : <ClearedBtn />}
-
+        <ExportDataBtn onPress={this.exportData} />
       </View>
     )
   }
@@ -105,4 +119,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 })
-export default connect()(Settings)
+
+function mapStateToProps(state) {
+  return {
+    state
+  }
+}
+export default connect(mapStateToProps)(Settings)
