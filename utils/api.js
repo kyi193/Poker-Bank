@@ -1,5 +1,6 @@
 import { AsyncStorage } from 'react-native'
 
+
 export const SESSION_STORAGE_KEY = 'PokerBank:Sessions';
 
 export const clearSessions = () => {
