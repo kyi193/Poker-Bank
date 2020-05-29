@@ -21,7 +21,7 @@ function ClearBtn({ onPress }) {
   )
 }
 
-function ClearedBtn({ onPress }) {
+function ClearedBtn() {
   return (
     <View
       style={Platform.OS === 'ios'

@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet, Dimensions, FlatList } from 'react-native'
 import { connect } from 'react-redux'
-import { retrieveSessions } from '../utils/api'
-import { receiveSessions } from '../actions'
 import { Header } from 'react-native-elements'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import moment from 'moment'
 import { Entypo } from '@expo/vector-icons';
-import { darkGray, backgroundGray, menuItemGray, offYellow } from '../utils/colors'
+import { darkGray, backgroundGray, offYellow } from '../utils/colors'
 import SessionDetails from './SessionDetails'
 
 
@@ -29,16 +26,6 @@ class SessionList extends Component {
       dataLoaded: false
     }
   }
-  // componentDidMount() {
-  //   const { dispatch, state } = this.props
-  //   if (Object.keys(state).length < 1) {
-  //     retrieveSessions()
-  //       .then(sessions => dispatch(receiveSessions(sessions)))
-  //       .then(() => {
-  //         this.setState({ dataLoaded: true });
-  //       });
-  //   }
-  // }
   toHome = () => {
     this.props.navigation.navigate('Menu')
   }
@@ -114,27 +101,6 @@ const styles = StyleSheet.create({
     backgroundColor: backgroundGray,
     justifyContent: 'center',
     alignItems: 'center'
-  },
-  infoHeaderDate: {
-    fontSize: 25,
-    color: 'white',
-    marginLeft: 5,
-  },
-  infoHeader: {
-    color: 'white',
-    marginLeft: 5,
-  },
-  negativeResult: {
-    color: 'red',
-    fontSize: 25,
-    marginTop: 10,
-    marginRight: 3,
-  },
-  positiveResult: {
-    color: 'green',
-    fontSize: 25,
-    marginTop: 10,
-    marginRight: 3,
   },
   sessionBox: {
     width: Dimensions.get('window').width,

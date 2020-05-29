@@ -1,14 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import { darkGray, backgroundGray, menuItemGray, offYellow } from '../utils/colors'
 import moment from 'moment'
-
 
 function SessionDetails({ date, result }) {
   return (
     <View
       style={{ flexDirection: 'row', justifyContent: 'space-between', borderColor: 'gray', borderWidth: 2 }}
-    // key={session.id}
     >
       <View style={{ justifyContent: 'row', backgroundColor: 'black', borderRadius: 5, width: 100 }}>
         <Text style={styles.infoHeaderDate}>{moment(date).format('dddd MMMM D Y').substring(0, 3)} </Text>
@@ -25,12 +22,6 @@ function SessionDetails({ date, result }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: backgroundGray,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
   infoHeaderDate: {
     fontSize: 25,
     color: 'white',
@@ -52,12 +43,5 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginRight: 3,
   },
-  sessionBox: {
-    flex: 1,
-    justifyContent: 'space-between',
-    borderBottomWidth: 3,
-    borderColor: 'gray',
-    backgroundColor: 'rgba(169, 169, 169, 0.2)',
-  }
 })
 export default SessionDetails

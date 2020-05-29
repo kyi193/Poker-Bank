@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, Dimensions, StyleSheet, TouchableOpacity } from 'react-native'
 import { LineChart } from "react-native-chart-kit";
 import { Entypo } from '@expo/vector-icons';
-import { darkGray, backgroundGray, menuItemGray, offYellow } from '../utils/colors'
+import { darkGray, backgroundGray, offYellow } from '../utils/colors'
 
 function HomeBtn({ onPress }) {
   return (
