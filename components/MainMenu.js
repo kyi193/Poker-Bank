@@ -24,8 +24,8 @@ class MainMenu extends Component {
         }
       }
       for (let i = 1; i < 100; i++) {
-        const win = Math.random() <= 0.75 ? true : false
-        const percentChange = (Math.random() * .3) + .1
+        const win = Math.random() <= 0.6 ? true : false
+        const percentChange = (Math.random() * .2) + .1
         let result;
         const lastSession = sessions[i - 1]
         if (win) {
@@ -36,7 +36,7 @@ class MainMenu extends Component {
         date.setDate(date.getDate() + 1);
         sessions[i] = {
           cumulativeWinnings: lastSession.cumulativeWinnings + result,
-          result: result,
+          result: Math.floor(result),
           id: i,
           date: `${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${("0" + date.getDate()).slice(-2)}`
         }
