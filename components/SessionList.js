@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableOpacity, StyleSheet, Dimensions } from 'react-native'
+import { Text, View, TouchableOpacity, StyleSheet, Dimensions, FlatList } from 'react-native'
 import { connect } from 'react-redux'
 import { retrieveSessions } from '../utils/api'
 import { receiveSessions } from '../actions'
@@ -8,6 +8,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import moment from 'moment'
 import { Entypo } from '@expo/vector-icons';
 import { darkGray, backgroundGray, menuItemGray, offYellow } from '../utils/colors'
+import SessionDetails from './SessionDetails'
 
 
 function HomeBtn({ onPress }) {
@@ -19,6 +20,7 @@ function HomeBtn({ onPress }) {
     </TouchableOpacity>
   )
 }
+
 class SessionList extends Component {
   constructor(props) {
     super(props)
@@ -42,7 +44,7 @@ class SessionList extends Component {
   }
   render() {
     const { state, sortedSessions } = this.props
-    console.log("state: ", state)
+    console.log("sortedSessions: ", sortedSessions)
     return ((sortedSessions.length > 0)
       ? <View style={styles.container}>
         <Header
@@ -56,23 +58,16 @@ class SessionList extends Component {
             backgroundColor: darkGray,
             justifyContent: 'space-around',
           }} />
-        <View>
-          {sortedSessions.map(session =>
-            <View
-              key={session.id}
-              style={styles.sessionBox}>
-              <View style={{ justifyContent: 'space-between', backgroundColor: 'black', borderRadius: 5, width: 80 }}>
-                <Text style={styles.infoHeaderDate}>{moment(session.date).format('dddd MMMM D Y').substring(0, 3)} </Text>
-                <Text style={styles.infoHeader}>{moment(session.date).format('MMMM D ')}</Text>
-                <Text style={styles.infoHeader}>{moment(session.date).format('Y ')}</Text>
-              </View>
-              <View style={{ justifyContent: 'space-between' }}>
-                {session.result < 0
-                  ? <Text style={styles.negativeResult}>-${session.result * -1}</Text>
-                  : <Text style={styles.positiveResult}>+${session.result}</Text>}
-              </View>
-            </View>)}
-        </View>
+        <FlatList
+          contentContainerStyle={styles.sessionBox}
+          data={sortedSessions}
+          renderItem={({ item }) => (
+            <SessionDetails
+              date={item.date}
+              result={item.result}
+            />)}
+          keyExtractor={item => `${item.id}`}
+        />
       </View>
       : <View style={{ flex: 1, backgroundColor: backgroundGray }}>
         <Header
@@ -116,7 +111,9 @@ function mapStateToProps(state) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: backgroundGray
+    backgroundColor: backgroundGray,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   infoHeaderDate: {
     fontSize: 25,
@@ -140,8 +137,7 @@ const styles = StyleSheet.create({
     marginRight: 3,
   },
   sessionBox: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    width: Dimensions.get('window').width,
     borderBottomWidth: 3,
     borderColor: 'gray',
     backgroundColor: 'rgba(169, 169, 169, 0.2)',
