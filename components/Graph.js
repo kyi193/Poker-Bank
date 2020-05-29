@@ -19,7 +19,25 @@ class Graph extends Component {
     this.props.navigation.navigate('Menu')
   }
   render() {
-    const { results, label, title } = this.props.route.params
+    const DEMO_MODE = true
+    if (DEMO_MODE) {
+      var title = "Demo Mode"
+      var label = [1]
+      var results = [10]
+      for (let i = 0; i < 200; i++) {
+        label.push(label[i] + 1)
+        const win = Math.random() <= 0.75 ? true : false
+        const percentChange = (Math.random() * .3) + .1
+        if (win) {
+          results.push(results[i] + (results[i] * percentChange))
+        } else {
+          results.push(results[i] - (results[i] * percentChange))
+        }
+      }
+
+    } else {
+      var { results, label, title } = this.props.route.params
+    }
     return ((results.length > 0 && label.length > 0)
       ? (
         <View style={styles.container}>
@@ -45,12 +63,18 @@ class Graph extends Component {
               color: (opacity = 0) => `rgba(255, 255, 255, ${opacity})`,
               strokeWidth: 2, // optional, default 3
               barPercentage: .5,
-              useShadowColorFromDataset: true // optional
+              useShadowColorFromDataset: true,
+              propsForDots: {
+                r: "1",
+                strokeWidth: ".1",
+                stroke: "#ffa726"
+              }
             }}
             style={{
               marginVertical: 8,
               borderRadius: 16
             }}
+
           />
         </View>
       )
