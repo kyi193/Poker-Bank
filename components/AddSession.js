@@ -98,7 +98,7 @@ class AddSession extends Component {
         <View style={styles.menuContent}>
           <Text style={styles.menuItem}>Date:</Text>
           <DatePicker
-            style={{ width: 250, marginBottom: 20 }}
+            style={{ width: 250, marginBottom: 20, }}
             date={this.state.date}
             mode="date"
             placeholder="select date"
@@ -109,16 +109,14 @@ class AddSession extends Component {
             cancelBtnText="Cancel"
             customStyles={{
               dateIcon: {
-                position: 'absolute',
-                left: 0,
-                top: 4,
-                marginLeft: 0
+                display: 'none'
+              },
+              dateText: {
+                color: '#FFF'
               },
               dateInput: {
                 marginLeft: 35,
-                color: 'white'
               }
-              // ... You can check the source to find the other keys.
             }}
             onDateChange={(date) => { this.setState({ date: date }) }}
           />
