@@ -3,6 +3,8 @@ import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-nati
 import { Header } from 'react-native-elements'
 import { darkGray, backgroundGray, menuItemGray } from '../utils/colors'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 import moment from 'moment'
 
@@ -31,6 +33,7 @@ class GraphMenu extends Component {
                 label: Object.keys(sortedSessions).map((index) => parseInt(index) + 1),
                 title: "Results by Date"
               })}>
+            <MaterialIcons name="format-list-numbered" size={30} color="black" />
             <Text style={styles.menuText}>Chart by Session</Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -41,6 +44,7 @@ class GraphMenu extends Component {
                 label: sortedSessions.map((session) => moment(session.date).format('MMMM ').substring(0, 3)),
                 title: "Results by Date"
               })}>
+            <AntDesign name="calendar" size={30} color="black" />
             <Text style={styles.menuText}>Chart by Date</Text>
           </TouchableOpacity>
         </View>
