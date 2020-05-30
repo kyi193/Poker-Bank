@@ -6,6 +6,7 @@ import { Header } from 'react-native-elements'
 import { darkGray, backgroundGray, menuItemGray, limeGreen, tomatoRed, blue, white } from '../utils/colors'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { clearSession } from '../actions'
+import axios from 'axios';
 
 function ClearBtn({ onPress }) {
   return (
@@ -61,7 +62,20 @@ class Settings extends Component {
   }
 
   exportData = () => {
+    const { state } = this.props
 
+    const data = {
+      export_data: Object.assign({}, state),
+      send_to_email: 'andrew.yi50@gmail.com'
+    }
+
+    axios.post('https://poker-bank-api.herokuapp.com/data_exports', data)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
   render() {
     return (
