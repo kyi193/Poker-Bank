@@ -12,7 +12,7 @@ import { receiveSessions } from '../actions'
 class MainMenu extends Component {
   componentDidMount() {
     const { dispatch } = this.props
-    const DEMO_MODE = true
+    const DEMO_MODE = false
     if (DEMO_MODE) {
       var date = new Date()
       var sessions = {
@@ -98,8 +98,10 @@ class MainMenu extends Component {
     )
   }
 }
-
-export default connect()(MainMenu)
+function mapStateToProps(state) {
+  return state
+}
+export default connect(mapStateToProps)(MainMenu)
 
 const styles = StyleSheet.create({
   container: {

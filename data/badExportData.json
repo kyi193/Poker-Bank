@@ -1,0 +1,602 @@
+{
+  "0": {
+    "cumulativeWinnings": 10,
+    "id": 0,
+    "result": 0,
+    "date": "2020-05-29"
+  },
+  "101": {
+    "cumulativeWinnings": 11.517523635296095,
+    "result": 1,
+    "id": 1,
+    "date": "2020-05-30"
+  },
+  "2": {
+    "cumulativeWinnings": 10.300394559972151,
+    "result": -2,
+    "id": 2,
+    "date": "2020-05-31"
+  },
+  "3": {
+    "cumulativeWinnings": 12.3465201627295,
+    "result": 2,
+    "id": 3,
+    "date": "2020-06-01"
+  },
+  "4": {
+    "cumulativeWinnings": 14.500126297755033,
+    "result": 2,
+    "id": 4,
+    "date": "2020-06-02"
+  },
+  "5": {
+    "cumulativeWinnings": 17.13437319974857,
+    "result": 2,
+    "id": 5,
+    "date": "2020-06-03"
+  },
+  "6": {
+    "cumulativeWinnings": 13.47978665525359,
+    "result": -4,
+    "id": 6,
+    "date": "2020-06-04"
+  },
+  "7": {
+    "cumulativeWinnings": 15.485908673408009,
+    "result": 2,
+    "id": 7,
+    "date": "2020-06-05"
+  },
+  "8": {
+    "cumulativeWinnings": 13.56556784409278,
+    "result": -2,
+    "id": 8,
+    "date": "2020-06-06"
+  },
+  "9": {
+    "cumulativeWinnings": 16.24312975106224,
+    "result": 2,
+    "id": 9,
+    "date": "2020-06-07"
+  },
+  "10": {
+    "cumulativeWinnings": 11.561496009523882,
+    "result": -5,
+    "id": 10,
+    "date": "2020-06-08"
+  },
+  "11": {
+    "cumulativeWinnings": 9.935572229612323,
+    "result": -2,
+    "id": 11,
+    "date": "2020-06-09"
+  },
+  "12": {
+    "cumulativeWinnings": 11.896559766226256,
+    "result": 1,
+    "id": 12,
+    "date": "2020-06-10"
+  },
+  "13": {
+    "cumulativeWinnings": 8.849720269440727,
+    "result": -4,
+    "id": 13,
+    "date": "2020-06-11"
+  },
+  "14": {
+    "cumulativeWinnings": 10.268147329583536,
+    "result": 1,
+    "id": 14,
+    "date": "2020-06-12"
+  },
+  "15": {
+    "cumulativeWinnings": 12.874926696596193,
+    "result": 2,
+    "id": 15,
+    "date": "2020-06-13"
+  },
+  "16": {
+    "cumulativeWinnings": 16.691865420964294,
+    "result": 3,
+    "id": 16,
+    "date": "2020-06-14"
+  },
+  "17": {
+    "cumulativeWinnings": 14.22884120920544,
+    "result": -3,
+    "id": 17,
+    "date": "2020-06-15"
+  },
+  "18": {
+    "cumulativeWinnings": 11.420277372359573,
+    "result": -3,
+    "id": 18,
+    "date": "2020-06-16"
+  },
+  "19": {
+    "cumulativeWinnings": 13.545547996543206,
+    "result": 2,
+    "id": 19,
+    "date": "2020-06-17"
+  },
+  "20": {
+    "cumulativeWinnings": 11.577021231475541,
+    "result": -2,
+    "id": 20,
+    "date": "2020-06-18"
+  },
+  "21": {
+    "cumulativeWinnings": 9.598128951176609,
+    "result": -2,
+    "id": 21,
+    "date": "2020-06-19"
+  },
+  "22": {
+    "cumulativeWinnings": 11.945100205616711,
+    "result": 2,
+    "id": 22,
+    "date": "2020-06-20"
+  },
+  "23": {
+    "cumulativeWinnings": 13.44620884046919,
+    "result": 1,
+    "id": 23,
+    "date": "2020-06-21"
+  },
+  "24": {
+    "cumulativeWinnings": 16.465495664467618,
+    "result": 3,
+    "id": 24,
+    "date": "2020-06-22"
+  },
+  "25": {
+    "cumulativeWinnings": 13.017432726169213,
+    "result": -4,
+    "id": 25,
+    "date": "2020-06-23"
+  },
+  "26": {
+    "cumulativeWinnings": 10.529706322147263,
+    "result": -3,
+    "id": 26,
+    "date": "2020-06-24"
+  },
+  "27": {
+    "cumulativeWinnings": 8.739452969032069,
+    "result": -2,
+    "id": 27,
+    "date": "2020-06-25"
+  },
+  "28": {
+    "cumulativeWinnings": 7.366598228328595,
+    "result": -2,
+    "id": 28,
+    "date": "2020-06-26"
+  },
+  "29": {
+    "cumulativeWinnings": 6.124854864933766,
+    "result": -2,
+    "id": 29,
+    "date": "2020-06-27"
+  },
+  "30": {
+    "cumulativeWinnings": 4.698745695965141,
+    "result": -2,
+    "id": 30,
+    "date": "2020-06-28"
+  },
+  "31": {
+    "cumulativeWinnings": 3.521526708637382,
+    "result": -2,
+    "id": 31,
+    "date": "2020-06-29"
+  },
+  "32": {
+    "cumulativeWinnings": 4.5197528425124744,
+    "result": 0,
+    "id": 32,
+    "date": "2020-06-30"
+  },
+  "33": {
+    "cumulativeWinnings": 5.533085073685035,
+    "result": 1,
+    "id": 33,
+    "date": "2020-07-01"
+  },
+  "34": {
+    "cumulativeWinnings": 4.315816985576394,
+    "result": -2,
+    "id": 34,
+    "date": "2020-07-02"
+  },
+  "35": {
+    "cumulativeWinnings": 3.8027068101570425,
+    "result": -1,
+    "id": 35,
+    "date": "2020-07-03"
+  },
+  "36": {
+    "cumulativeWinnings": 4.769795974123199,
+    "result": 0,
+    "id": 36,
+    "date": "2020-07-04"
+  },
+  "37": {
+    "cumulativeWinnings": 3.537019767161927,
+    "result": -2,
+    "id": 37,
+    "date": "2020-07-05"
+  },
+  "38": {
+    "cumulativeWinnings": 4.31061020988039,
+    "result": 0,
+    "id": 38,
+    "date": "2020-07-06"
+  },
+  "39": {
+    "cumulativeWinnings": 5.181450499764297,
+    "result": 0,
+    "id": 39,
+    "date": "2020-07-07"
+  },
+  "40": {
+    "cumulativeWinnings": 6.112184654449412,
+    "result": 0,
+    "id": 40,
+    "date": "2020-07-08"
+  },
+  "41": {
+    "cumulativeWinnings": 7.580634045258813,
+    "result": 1,
+    "id": 41,
+    "date": "2020-07-09"
+  },
+  "42": {
+    "cumulativeWinnings": 9.426830491972927,
+    "result": 1,
+    "id": 42,
+    "date": "2020-07-10"
+  },
+  "43": {
+    "cumulativeWinnings": 10.84131404229581,
+    "result": 1,
+    "id": 43,
+    "date": "2020-07-11"
+  },
+  "44": {
+    "cumulativeWinnings": 12.80872952713373,
+    "result": 1,
+    "id": 44,
+    "date": "2020-07-12"
+  },
+  "45": {
+    "cumulativeWinnings": 15.380721112054283,
+    "result": 2,
+    "id": 45,
+    "date": "2020-07-13"
+  },
+  "46": {
+    "cumulativeWinnings": 12.235353787475004,
+    "result": -4,
+    "id": 46,
+    "date": "2020-07-14"
+  },
+  "47": {
+    "cumulativeWinnings": 14.258660285932315,
+    "result": 2,
+    "id": 47,
+    "date": "2020-07-15"
+  },
+  "48": {
+    "cumulativeWinnings": 11.434020344388946,
+    "result": -3,
+    "id": 48,
+    "date": "2020-07-16"
+  },
+  "49": {
+    "cumulativeWinnings": 14.31823124261101,
+    "result": 2,
+    "id": 49,
+    "date": "2020-07-17"
+  },
+  "50": {
+    "cumulativeWinnings": 11.924314300215642,
+    "result": -3,
+    "id": 50,
+    "date": "2020-07-18"
+  },
+  "51": {
+    "cumulativeWinnings": 14.59604451614208,
+    "result": 2,
+    "id": 51,
+    "date": "2020-07-19"
+  },
+  "52": {
+    "cumulativeWinnings": 16.55152458190398,
+    "result": 1,
+    "id": 52,
+    "date": "2020-07-20"
+  },
+  "53": {
+    "cumulativeWinnings": 19.55232294156209,
+    "result": 3,
+    "id": 53,
+    "date": "2020-07-21"
+  },
+  "54": {
+    "cumulativeWinnings": 22.39721512964033,
+    "result": 2,
+    "id": 54,
+    "date": "2020-07-22"
+  },
+  "55": {
+    "cumulativeWinnings": 17.26349032138156,
+    "result": -6,
+    "id": 55,
+    "date": "2020-07-23"
+  },
+  "56": {
+    "cumulativeWinnings": 19.87514756309521,
+    "result": 2,
+    "id": 56,
+    "date": "2020-07-24"
+  },
+  "57": {
+    "cumulativeWinnings": 23.135802454525322,
+    "result": 3,
+    "id": 57,
+    "date": "2020-07-25"
+  },
+  "58": {
+    "cumulativeWinnings": 29.7771721915731,
+    "result": 6,
+    "id": 58,
+    "date": "2020-07-26"
+  },
+  "59": {
+    "cumulativeWinnings": 34.19267036370466,
+    "result": 4,
+    "id": 59,
+    "date": "2020-07-27"
+  },
+  "60": {
+    "cumulativeWinnings": 27.6127207297562,
+    "result": -7,
+    "id": 60,
+    "date": "2020-07-28"
+  },
+  "61": {
+    "cumulativeWinnings": 20.645024868578712,
+    "result": -7,
+    "id": 61,
+    "date": "2020-07-29"
+  },
+  "62": {
+    "cumulativeWinnings": 15.998812465057302,
+    "result": -5,
+    "id": 62,
+    "date": "2020-07-30"
+  },
+  "63": {
+    "cumulativeWinnings": 18.8832612664405,
+    "result": 2,
+    "id": 63,
+    "date": "2020-07-31"
+  },
+  "64": {
+    "cumulativeWinnings": 16.517639246135648,
+    "result": -3,
+    "id": 64,
+    "date": "2020-08-01"
+  },
+  "65": {
+    "cumulativeWinnings": 18.868255605560808,
+    "result": 2,
+    "id": 65,
+    "date": "2020-08-02"
+  },
+  "66": {
+    "cumulativeWinnings": 16.595947546375893,
+    "result": -3,
+    "id": 66,
+    "date": "2020-08-03"
+  },
+  "67": {
+    "cumulativeWinnings": 12.912744357082488,
+    "result": -4,
+    "id": 67,
+    "date": "2020-08-04"
+  },
+  "68": {
+    "cumulativeWinnings": 15.682743334736516,
+    "result": 2,
+    "id": 68,
+    "date": "2020-08-05"
+  },
+  "69": {
+    "cumulativeWinnings": 20.311910278164568,
+    "result": 4,
+    "id": 69,
+    "date": "2020-08-06"
+  },
+  "70": {
+    "cumulativeWinnings": 15.948601566054844,
+    "result": -5,
+    "id": 70,
+    "date": "2020-08-07"
+  },
+  "71": {
+    "cumulativeWinnings": 20.0073248360889,
+    "result": 4,
+    "id": 71,
+    "date": "2020-08-08"
+  },
+  "72": {
+    "cumulativeWinnings": 23.041201172293036,
+    "result": 3,
+    "id": 72,
+    "date": "2020-08-09"
+  },
+  "73": {
+    "cumulativeWinnings": 29.299982943528466,
+    "result": 6,
+    "id": 73,
+    "date": "2020-08-10"
+  },
+  "74": {
+    "cumulativeWinnings": 36.9104685028592,
+    "result": 7,
+    "id": 74,
+    "date": "2020-08-11"
+  },
+  "75": {
+    "cumulativeWinnings": 44.34555646648703,
+    "result": 7,
+    "id": 75,
+    "date": "2020-08-12"
+  },
+  "76": {
+    "cumulativeWinnings": 54.47961607341301,
+    "result": 10,
+    "id": 76,
+    "date": "2020-08-13"
+  },
+  "77": {
+    "cumulativeWinnings": 70.31658589926045,
+    "result": 15,
+    "id": 77,
+    "date": "2020-08-14"
+  },
+  "78": {
+    "cumulativeWinnings": 61.460707935250255,
+    "result": -9,
+    "id": 78,
+    "date": "2020-08-15"
+  },
+  "79": {
+    "cumulativeWinnings": 72.78291275072847,
+    "result": 11,
+    "id": 79,
+    "date": "2020-08-16"
+  },
+  "80": {
+    "cumulativeWinnings": 61.02739500642786,
+    "result": -12,
+    "id": 80,
+    "date": "2020-08-17"
+  },
+  "81": {
+    "cumulativeWinnings": 73.8850968534642,
+    "result": 12,
+    "id": 81,
+    "date": "2020-08-18"
+  },
+  "82": {
+    "cumulativeWinnings": 62.14433777957758,
+    "result": -12,
+    "id": 82,
+    "date": "2020-08-19"
+  },
+  "83": {
+    "cumulativeWinnings": 55.33461427038016,
+    "result": -7,
+    "id": 83,
+    "date": "2020-08-20"
+  },
+  "84": {
+    "cumulativeWinnings": 45.270069789888176,
+    "result": -11,
+    "id": 84,
+    "date": "2020-08-21"
+  },
+  "85": {
+    "cumulativeWinnings": 35.71993730577039,
+    "result": -10,
+    "id": 85,
+    "date": "2020-08-22"
+  },
+  "86": {
+    "cumulativeWinnings": 28.43320546516773,
+    "result": -8,
+    "id": 86,
+    "date": "2020-08-23"
+  },
+  "87": {
+    "cumulativeWinnings": 36.31787854488642,
+    "result": 7,
+    "id": 87,
+    "date": "2020-08-24"
+  },
+  "88": {
+    "cumulativeWinnings": 45.267728110387274,
+    "result": 8,
+    "id": 88,
+    "date": "2020-08-25"
+  },
+  "89": {
+    "cumulativeWinnings": 53.69451460884718,
+    "result": 8,
+    "id": 89,
+    "date": "2020-08-26"
+  },
+  "90": {
+    "cumulativeWinnings": 68.62929475935735,
+    "result": 14,
+    "id": 90,
+    "date": "2020-08-27"
+  },
+  "91": {
+    "cumulativeWinnings": 50.63658744294858,
+    "result": -18,
+    "id": 91,
+    "date": "2020-08-28"
+  },
+  "92": {
+    "cumulativeWinnings": 64.25425890284384,
+    "result": 13,
+    "id": 92,
+    "date": "2020-08-29"
+  },
+  "93": {
+    "cumulativeWinnings": 81.21333653904415,
+    "result": 16,
+    "id": 93,
+    "date": "2020-08-30"
+  },
+  "94": {
+    "cumulativeWinnings": 97.16659216466206,
+    "result": 15,
+    "id": 94,
+    "date": "2020-08-31"
+  },
+  "95": {
+    "cumulativeWinnings": 120.05706604206384,
+    "result": 22,
+    "id": 95,
+    "date": "2020-09-01"
+  },
+  "96": {
+    "cumulativeWinnings": 91.61980303915945,
+    "result": -29,
+    "id": 96,
+    "date": "2020-09-02"
+  },
+  "97": {
+    "cumulativeWinnings": 80.42783738579466,
+    "result": -12,
+    "id": 97,
+    "date": "2020-09-03"
+  },
+  "98": {
+    "cumulativeWinnings": 66.87678219939264,
+    "result": -14,
+    "id": 98,
+    "date": "2020-09-04"
+  },
+  "99": {
+    "cumulativeWinnings": 73.77891132202683,
+    "result": 6,
+    "id": 99,
+    "date": "2020-09-05"
+  }
+}

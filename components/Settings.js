@@ -7,6 +7,7 @@ import { darkGray, backgroundGray, menuItemGray, limeGreen, tomatoRed, blue, whi
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { clearSession } from '../actions'
 import axios from 'axios';
+import { receiveSessions } from '../actions'
 
 function ClearBtn({ onPress }) {
   return (
@@ -29,6 +30,17 @@ function ExportDataBtn({ onPress }) {
         : styles.androidSubmitBtn}
       onPress={onPress}>
       <Text style={styles.submitBtnText}>Export Data</Text>
+    </TouchableOpacity>
+  )
+}
+function ImportDataBtn({ onPress }) {
+  return (
+    <TouchableOpacity
+      style={Platform.OS === 'ios'
+        ? styles.iosSubmitBtn
+        : styles.androidSubmitBtn}
+      onPress={onPress}>
+      <Text style={styles.submitBtnText}>Import Data</Text>
     </TouchableOpacity>
   )
 }
@@ -77,6 +89,41 @@ class Settings extends Component {
         console.log(error);
       });
   }
+
+  importData = () => {
+    const importData = require('../data/exportData.json')
+    const { dispatch } = this.props
+    const keys = Object.keys(importData)
+    let isDateValid = false
+    let isResultValid = false
+    let key = keys[0]
+    for (let i = 1; i < keys.length; i++) {
+      if (keys[i] - key !== 1) {
+        return
+      }
+      key = keys[i]
+    }
+    for (let session in importData) {
+      const dateString = importData[session].date
+      const dateObj = new Date(dateString)
+      const dateObjString = (JSON.stringify(dateObj.toJSON()).slice(0, 11).slice(1))
+      isDateValid = dateString === dateObjString
+      isResultValid = typeof importData[session].result === 'number'
+      if (!isDateValid || !isResultValid) {
+        isDatevalid = false
+        isResultValid = false
+        break
+      }
+    }
+    if (isDateValid && isResultValid) {
+      dispatch(receiveSessions(importData))
+      console.log('Data successfully imported')
+    } else {
+      console.log('Error')
+    }
+
+
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -96,6 +143,7 @@ class Settings extends Component {
           ? <ClearBtn onPress={this.clearDeck} />
           : <ClearedBtn />}
         <ExportDataBtn onPress={this.exportData} />
+        <ImportDataBtn onPress={this.importData} />
       </View>
     )
   }
