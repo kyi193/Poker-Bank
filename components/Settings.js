@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
+import { Text, View, TouchableOpacity, StyleSheet, Alert } from 'react-native'
 import { clearSessions, exportEmail } from '../utils/api'
 import { connect } from 'react-redux'
 import { Header } from 'react-native-elements'
@@ -45,32 +45,13 @@ function ImportDataBtn({ onPress }) {
   )
 }
 
-function ClearedBtn() {
-  return (
-    <View
-      style={Platform.OS === 'ios'
-        ? styles.iosSubmitBtn
-        : styles.androidSubmitBtn}
-    >
-      <Text style={styles.submitBtnText}>Sessions Cleared</Text>
-    </View>
-  )
-}
-class Settings extends Component {
-  constructor(props) {
-    super(props)
 
-    this.state = {
-      clearToggle: false
-    }
-  }
+class Settings extends Component {
   clearDeck = () => {
     const { dispatch } = this.props
     dispatch(clearSession(null))
     clearSessions()
-    this.setState(() => ({
-      clearToggle: true
-    }))
+    this.clearAlert()
   }
 
   exportData = () => {
@@ -90,6 +71,16 @@ class Settings extends Component {
       });
   }
 
+  clearAlert = () =>
+    Alert.alert(
+      "You got it!",
+      "Your data has been cleared.",
+      [
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
+
   render() {
     return (
       <View style={styles.container}>
@@ -105,9 +96,7 @@ class Settings extends Component {
             justifyContent: 'space-around',
           }} />
         <Text style={{ alignSelf: 'start', fontSize: 20, paddingBottom: 5, color: 'white', marginTop: 20 }}>           Clear All Data</Text>
-        {this.state.clearToggle === false
-          ? <ClearBtn onPress={this.clearDeck} />
-          : <ClearedBtn />}
+        <ClearBtn onPress={this.clearDeck} />
         <ExportDataBtn onPress={this.exportData} />
         <ImportDataBtn onPress={() => this.props.navigation.navigate('Import')} />
       </View>
