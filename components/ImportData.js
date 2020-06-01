@@ -5,6 +5,7 @@ import { Header } from 'react-native-elements';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { receiveSessions } from '../actions'
 import { connect } from 'react-redux'
+import { AntDesign } from '@expo/vector-icons';
 
 function ImportBtn({ onPress }) {
   return (
@@ -102,6 +103,12 @@ class ImportData extends Component {
             color='white'
           />}
           centerComponent={{ text: 'Import Session Data', style: { color: '#fff', fontSize: 24 } }}
+          rightComponent={<TouchableOpacity onPress={() => this.props.navigation.goBack(null)}>
+            <AntDesign
+              name="back"
+              size={30}
+              color="#C0C0C0" />
+          </TouchableOpacity>}
           containerStyle={{
             backgroundColor: darkGray,
             justifyContent: 'space-around',
