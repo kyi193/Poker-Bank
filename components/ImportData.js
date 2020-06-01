@@ -7,7 +7,10 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 class ImportData extends Component {
   constructor(props) {
     super(props);
-    this.state = { text: '', testWidth: '99%' };
+    this.state = {
+      text: '',
+      testWidth: '99%'
+    }
   }
   componentDidMount() {
     setTimeout(() => {
@@ -40,8 +43,11 @@ class ImportData extends Component {
               borderWidth: 2,
               width: this.state.testWidth,
               height: 200,
-              color: 'white'
+              color: 'white',
+              borderColor: 'gray'
+
             }}
+            placeholderTextColor='white'
             placeholder="Type here to translate!"
             onChangeText={(text) => this.setState({ text })}
             value={this.state.text}
