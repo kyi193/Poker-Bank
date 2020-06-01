@@ -3,6 +3,9 @@ import { View, Text, Dimensions, StyleSheet, TouchableOpacity } from 'react-nati
 import { LineChart } from "react-native-chart-kit";
 import { Entypo } from '@expo/vector-icons';
 import { darkGray, backgroundGray, offYellow } from '../utils/colors'
+import { Header } from 'react-native-elements';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 function HomeBtn({ onPress }) {
   return (
@@ -23,7 +26,23 @@ class Graph extends Component {
     return ((results.length > 0 && label.length > 0)
       ? (
         <View style={styles.container}>
-          <Text style={{ fontSize: 25, color: 'white' }}>{title}</Text>
+          <Header
+            leftComponent={<MaterialCommunityIcons
+              name="poker-chip"
+              size={30}
+              color='white'
+            />}
+            centerComponent={{ text: title, style: { color: '#fff', fontSize: 24 } }}
+            rightComponent={<TouchableOpacity onPress={() => this.props.navigation.goBack(null)}>
+              <AntDesign
+                name="back"
+                size={30}
+                color="#C0C0C0" />
+            </TouchableOpacity>}
+            containerStyle={{
+              backgroundColor: darkGray,
+              justifyContent: 'space-around',
+            }} />
           <LineChart
             data={{
               labels: label,
@@ -53,6 +72,7 @@ class Graph extends Component {
               }
             }}
             style={{
+              marginTop: 50,
               marginVertical: 8,
               borderRadius: 16
             }}
@@ -72,8 +92,6 @@ class Graph extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: backgroundGray
   }
 })

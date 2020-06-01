@@ -31,7 +31,7 @@ class GraphMenu extends Component {
               {
                 results: sortedSessions.map((session) => session.cumulativeWinnings),
                 label: Object.keys(sortedSessions).map((index) => parseInt(index) + 1),
-                title: "Results by Date"
+                title: "Results by Session"
               })}>
             <MaterialIcons name="format-list-numbered" size={30} color="black" />
             <Text style={styles.menuText}>Chart by Session</Text>
