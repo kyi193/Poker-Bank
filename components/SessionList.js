@@ -6,7 +6,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { darkGray, backgroundGray, offYellow } from '../utils/colors'
 import SessionDetails from './SessionDetails'
-
+import { AntDesign } from '@expo/vector-icons';
 
 function HomeBtn({ onPress }) {
   return (
@@ -41,6 +41,12 @@ class SessionList extends Component {
             color='white'
           />}
           centerComponent={{ text: 'Sessions', style: { color: '#fff', fontSize: 24 } }}
+          rightComponent={<TouchableOpacity onPress={() => this.props.navigation.goBack(null)}>
+            <AntDesign
+              name="back"
+              size={30}
+              color="#C0C0C0" />
+          </TouchableOpacity>}
           containerStyle={{
             backgroundColor: darkGray,
             justifyContent: 'space-around',

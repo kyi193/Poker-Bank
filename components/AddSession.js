@@ -9,6 +9,7 @@ import { addSession } from '../actions'
 import { generateUID } from '../utils/helpers'
 import { connect } from 'react-redux'
 import { saveSession } from '../utils/api'
+import { AntDesign } from '@expo/vector-icons';
 function SubmitBtn({ onPress }) {
   return (
     <TouchableOpacity
@@ -91,6 +92,12 @@ class AddSession extends Component {
             color='white'
           />}
           centerComponent={{ text: 'Session Details', style: { color: '#fff', fontSize: 24 } }}
+          rightComponent={<TouchableOpacity onPress={() => this.props.navigation.goBack(null)}>
+            <AntDesign
+              name="back"
+              size={30}
+              color="#C0C0C0" />
+          </TouchableOpacity>}
           containerStyle={{
             backgroundColor: darkGray,
             justifyContent: 'space-around',
