@@ -57,7 +57,7 @@ class Settings extends Component {
 
     const data = {
       export_data: Object.assign({}, state),
-      send_to_email: 'andrew.yi50@gmail.com'
+      send_to_email: 'kevin.yi93@gmail.com'
     }
 
     axios.post('https://poker-bank-api.herokuapp.com/data_exports', data)
