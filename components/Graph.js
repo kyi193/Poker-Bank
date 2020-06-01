@@ -81,7 +81,7 @@ class Graph extends Component {
         </View>
       )
       : (
-        <View style={styles.container}>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: backgroundGray }}>
           <Text style={{ fontSize: 30, color: 'white', textAlign: 'center', marginBottom: 20 }}>Looks like you have no sessions logged in</Text>
           <HomeBtn onPress={this.toHome} />
           <Text style={{ fontSize: 20, color: 'white', marginTop: 10 }}>Return to Home</Text>
