@@ -90,7 +90,7 @@ class Settings extends Component {
             size={30}
             color='white'
           />}
-          centerComponent={{ text: 'Main Menu', style: { color: '#fff', fontSize: 24 } }}
+          centerComponent={{ text: 'Settings', style: { color: '#fff', fontSize: 24 } }}
           containerStyle={{
             backgroundColor: darkGray,
             justifyContent: 'space-around',
