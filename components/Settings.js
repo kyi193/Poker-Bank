@@ -13,7 +13,7 @@ function ClearBtn({ onPress }) {
   return (
     <TouchableOpacity
       style={Platform.OS === 'ios'
-        ? styles.iosSubmitBtn
+        ? styles.clearBtn
         : styles.androidSubmitBtn}
       onPress={onPress}>
       <Text style={styles.submitBtnText}>CLEAR SESSIONS</Text>
@@ -95,10 +95,11 @@ class Settings extends Component {
             backgroundColor: darkGray,
             justifyContent: 'space-around',
           }} />
-        <Text style={{ alignSelf: 'start', fontSize: 20, paddingBottom: 5, color: 'white', marginTop: 20 }}>           Clear All Data</Text>
-        <ClearBtn onPress={this.clearDeck} />
-        <ExportDataBtn onPress={this.exportData} />
-        <ImportDataBtn onPress={() => this.props.navigation.navigate('Import')} />
+        <View style={{ marginTop: 20 }}>
+          <ExportDataBtn onPress={this.exportData} />
+          <ImportDataBtn onPress={() => this.props.navigation.navigate('Import')} />
+          <ClearBtn onPress={this.clearDeck} />
+        </View>
       </View>
     )
   }
@@ -111,14 +112,30 @@ const styles = StyleSheet.create({
     backgroundColor: backgroundGray
   },
   iosSubmitBtn: {
-    backgroundColor: 'red',
+    backgroundColor: darkGray,
+    borderColor: 'gray',
+    borderWidth: 2,
     padding: 10,
     borderRadius: 7,
     height: 60,
     marginLeft: 40,
     marginRight: 40,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: 10
+  },
+  clearBtn: {
+    backgroundColor: '#B22222',
+    borderColor: 'gray',
+    borderWidth: 2,
+    padding: 10,
+    borderRadius: 7,
+    height: 60,
+    marginLeft: 40,
+    marginRight: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 10
   },
   androidSubmitBtn: {
     backgroundColor: blue,
