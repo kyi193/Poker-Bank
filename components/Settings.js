@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet, Alert } from 'react-native'
-import { clearSessions, exportEmail } from '../utils/api'
+import { clearSessions } from '../utils/api'
 import { connect } from 'react-redux'
 import { Header } from 'react-native-elements'
-import { darkGray, backgroundGray, menuItemGray, limeGreen, tomatoRed, blue, white } from '../utils/colors'
+import { darkGray, backgroundGray, blue, white } from '../utils/colors'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { clearSession } from '../actions'
 import axios from 'axios';
-import { receiveSessions } from '../actions'
 
 function ClearBtn({ onPress }) {
   return (
@@ -44,7 +43,6 @@ function ImportDataBtn({ onPress }) {
     </TouchableOpacity>
   )
 }
-
 
 class Settings extends Component {
   clearDeck = () => {

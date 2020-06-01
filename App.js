@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
 import reducer from './reducers';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';

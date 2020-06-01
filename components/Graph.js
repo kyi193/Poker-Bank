@@ -52,17 +52,17 @@ class Graph extends Component {
                 }
               ]
             }}
-            width={Dimensions.get("window").width}  // from react-native
+            width={Dimensions.get("window").width}
             height={600}
             yAxisLabel="$"
-            yAxisInterval={1} // optional, defaults to 1
+            yAxisInterval={1}
             chartConfig={{
               backgroundGradientFrom: "#1E2923",
               backgroundGradientFromOpacity: 0,
               backgroundGradientTo: "#08130D",
               backgroundGradientToOpacity: 0.5,
               color: (opacity = 0) => `rgba(255, 255, 255, ${opacity})`,
-              strokeWidth: 1, // optional, default 3
+              strokeWidth: 1,
               barPercentage: .5,
               useShadowColorFromDataset: true,
               propsForDots: {
