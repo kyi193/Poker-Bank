@@ -12,7 +12,7 @@ import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { lightGray, white, steelBlue, darkBlue, backgroundGray } from './utils/colors'
+import { lightGray, white, darkBlue, backgroundGray } from './utils/colors'
 import { SimpleLineIcons } from '@expo/vector-icons';
 import GraphMenu from './components/GraphMenu'
 import Settings from './components/Settings'

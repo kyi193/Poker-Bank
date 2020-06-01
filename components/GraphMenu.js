@@ -67,8 +67,6 @@ function mapStateToProps(state) {
     for (let i = 1; i < sortedSessions.length; i++) {
       sortedSessions[i].cumulativeWinnings = sortedSessions[i].result + sortedSessions[i - 1].cumulativeWinnings
     }
-    console.log("WINNINGS: ", sortedSessions)
-
   }
   return {
     sortedSessions,

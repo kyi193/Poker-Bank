@@ -31,7 +31,6 @@ class SessionList extends Component {
   }
   render() {
     const { state, sortedSessions } = this.props
-    console.log("sortedSessions: ", sortedSessions)
     return ((sortedSessions.length > 0)
       ? <View style={styles.container}>
         <Header
