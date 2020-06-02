@@ -98,7 +98,7 @@ class AddSession extends Component {
             size={30}
             color='white'
           />}
-          centerComponent={{ text: 'Session Details', style: { color: '#fff', fontSize: 24 } }}
+          centerComponent={{ text: 'Add Session Details', style: { color: '#fff', fontSize: 24 } }}
           rightComponent={<TouchableOpacity onPress={() => this.props.navigation.goBack(null)}>
             <AntDesign
               name="back"
