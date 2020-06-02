@@ -179,7 +179,7 @@ class AddSession extends Component {
             flexDirection: "row",
             width: Dimensions.get('window').width,
             justifyContent: 'space-around',
-            marginTop: 200,
+            marginTop: 150,
           }}>
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
               <HomeBtn
