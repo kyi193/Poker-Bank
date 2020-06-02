@@ -3,6 +3,10 @@ import { View, Text, StyleSheet } from 'react-native'
 import moment from 'moment'
 import { lightGray } from '../utils/colors'
 
+function formatNumber(num) {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+}
+
 function SessionDetails({ date, result, duration }) {
   return (
     <View
@@ -15,8 +19,8 @@ function SessionDetails({ date, result, duration }) {
       </View>
       <View>
         {result < 0
-          ? <Text style={styles.negativeResult}>-${result * -1}</Text>
-          : <Text style={styles.positiveResult}>+${result}</Text>}
+          ? <Text style={styles.negativeResult}>-${formatNumber(result * -1)}</Text>
+          : <Text style={styles.positiveResult}>+${formatNumber(result)}</Text>}
         <Text style={styles.duration}>{duration} Hours</Text>
       </View>
     </View>
