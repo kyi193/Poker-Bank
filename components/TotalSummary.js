@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: lightGray,
+    backgroundColor: 'rgba(255, 255, 255, .5)',
     height: 70,
     borderBottomWidth: 3,
   },
