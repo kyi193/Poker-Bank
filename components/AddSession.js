@@ -70,7 +70,7 @@ class AddSession extends Component {
     const { dispatch } = this.props
     const result = cashOut - buyIn
     const sessionID = generateUID()
-    if (date.length < 1 || buyIn.length < 1 || cashOut < 1 || duration.length < 1) {
+    if (date.length < 1 || buyIn.length < 1 || cashOut < 1 || typeof duration !== 'number') {
       this.createTwoButtonAlert()
       return
     }
