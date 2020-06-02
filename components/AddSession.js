@@ -36,6 +36,7 @@ class AddSession extends Component {
       buyIn: null,
       cashOut: null,
       total: null,
+      duration: null,
     }
   }
   createTwoButtonAlert = () =>
@@ -58,13 +59,18 @@ class AddSession extends Component {
       cashOut,
     }))
   }
+  onChangeDuration = (duration) => {
+    this.setState(() => ({
+      duration,
+    }))
+  }
 
   submitCard = () => {
-    const { date, buyIn, cashOut } = this.state;
+    const { date, buyIn, cashOut, duration } = this.state;
     const { dispatch } = this.props
     const result = cashOut - buyIn
     const sessionID = generateUID()
-    if (date.length < 1 || buyIn.length < 1 || cashOut < 1) {
+    if (date.length < 1 || buyIn.length < 1 || cashOut < 1 || duration.length < 1) {
       this.createTwoButtonAlert()
       return
     }
@@ -72,6 +78,7 @@ class AddSession extends Component {
       id: sessionID,
       date: date,
       result: result,
+      duration: duration,
       cumulativeWinnings: 0,
     }
     dispatch(addSession(sessionID, sessionInfo))
@@ -141,6 +148,16 @@ class AddSession extends Component {
             onChangeText={text => this.onChangeCashOut(text)}
             value={this.state.cashOut}
           />
+          <Text style={styles.menuItem}>Session Duration:</Text>
+          <View style={{ flexDirection: 'row' }}>
+            <TextInput
+              style={{ width: 70, height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 25, marginLeft: 0, color: 'white', paddingLeft: 10 }}
+              keyboardType='numeric'
+              onChangeText={text => this.onChangeDuration(text)}
+              value={this.state.duration}
+            />
+            <Text style={{ marginLeft: 20, color: 'white', fontSize: 30 }}>Hours</Text>
+          </View>
           <View style={{
             flexDirection: "row",
             width: Dimensions.get('window').width,

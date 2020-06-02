@@ -57,6 +57,7 @@ class SessionList extends Component {
             <SessionDetails
               date={item.date}
               result={item.result}
+              duration={item.duration}
             />)}
           keyExtractor={item => `${item.id}`}
         />

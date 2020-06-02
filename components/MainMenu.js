@@ -12,7 +12,7 @@ import { receiveSessions } from '../actions'
 class MainMenu extends Component {
   componentDidMount() {
     const { dispatch } = this.props
-    const DEMO_MODE = false
+    const DEMO_MODE = true
     if (DEMO_MODE) {
       var date = new Date()
       var sessions = {
@@ -20,6 +20,7 @@ class MainMenu extends Component {
           cumulativeWinnings: 10,
           id: 0,
           result: 0,
+          duration: Math.floor(Math.random() * 11) + 1,
           date: `${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${("0" + date.getDate()).slice(-2)}`
         }
       }
@@ -38,6 +39,7 @@ class MainMenu extends Component {
           cumulativeWinnings: lastSession.cumulativeWinnings + result,
           result: Math.floor(result),
           id: i,
+          duration: Math.floor(Math.random() * 11) + 1,
           date: `${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${("0" + date.getDate()).slice(-2)}`
         }
       }

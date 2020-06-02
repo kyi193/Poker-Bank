@@ -1,8 +1,9 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import moment from 'moment'
+import { lightGray } from '../utils/colors'
 
-function SessionDetails({ date, result }) {
+function SessionDetails({ date, result, duration }) {
   return (
     <View
       style={{ flexDirection: 'row', justifyContent: 'space-between', borderColor: 'gray', borderWidth: 2 }}
@@ -16,6 +17,7 @@ function SessionDetails({ date, result }) {
         {result < 0
           ? <Text style={styles.negativeResult}>-${result * -1}</Text>
           : <Text style={styles.positiveResult}>+${result}</Text>}
+        <Text style={styles.duration}>{duration} Hours</Text>
       </View>
     </View>
   )
@@ -43,5 +45,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginRight: 3,
   },
+  duration: {
+    color: lightGray,
+    fontSize: 12,
+    textAlign: 'right'
+  }
 })
 export default SessionDetails
