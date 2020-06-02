@@ -17,7 +17,7 @@ class MainMenu extends Component {
       var date = new Date()
       var sessions = {
         0: {
-          cumulativeWinnings: 10,
+          cumulativeWinnings: 200,
           id: 0,
           result: 0,
           duration: Math.floor(Math.random() * 11) + 1,
@@ -25,7 +25,7 @@ class MainMenu extends Component {
         }
       }
       for (let i = 1; i < 100; i++) {
-        const win = Math.random() <= 0.6 ? true : false
+        const win = Math.random() <= 0.68 ? true : false
         const percentChange = (Math.random() * .2) + .1
         let result;
         const lastSession = sessions[i - 1]
