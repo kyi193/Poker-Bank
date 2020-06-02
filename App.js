@@ -19,6 +19,7 @@ import Settings from './components/Settings'
 import { AntDesign } from '@expo/vector-icons'
 import SessionList from './components/SessionList'
 import ImportData from './components/ImportData'
+import TotalSummary from './components/TotalSummary'
 
 const Tabs = createBottomTabNavigator()
 
@@ -106,6 +107,15 @@ const MainNav = () => (
     <Stack.Screen
       name="Import"
       component={ImportData}
+      options={{
+        headerTintColor: white,
+        headerStyle: {
+          backgroundColor: backgroundGray,
+        }
+      }} />
+    <Stack.Screen
+      name="Summary"
+      component={TotalSummary}
       options={{
         headerTintColor: white,
         headerStyle: {

@@ -76,7 +76,9 @@ class MainMenu extends Component {
               size={24}
               color='black' />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.menuItem}>
+          <TouchableOpacity
+            style={styles.menuItem}
+            onPress={() => this.props.navigation.navigate('Summary')} >
             <Text style={styles.menuText}>Total Results</Text>
             <Entypo
               style={{ alignSelf: 'center' }}
