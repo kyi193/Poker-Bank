@@ -67,12 +67,23 @@ class Settings extends Component {
       .catch(function (error) {
         console.log(error);
       });
+    this.exportAlert(data.send_to_email)
   }
 
   clearAlert = () =>
     Alert.alert(
       "You got it!",
       "Your data has been cleared.",
+      [
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
+
+  exportAlert = (email) =>
+    Alert.alert(
+      "You got it!",
+      `Your data has been emailed to ${email}`,
       [
         { text: "OK", onPress: () => console.log("OK Pressed") }
       ],
