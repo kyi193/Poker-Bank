@@ -35,19 +35,19 @@ class TotalSummary extends Component {
           <Text style={styles.sessionDetailTitle}>Total Profit/Loss</Text>
           {cumulativeWinnings > 0
             ? <Text style={styles.totalProfit}>+${formatNumber(cumulativeWinnings)}</Text>
-            : <Text style={styles.totalProfit}>-${formatNumber(cumulativeWinnings)}</Text>}
+            : <Text style={styles.totalNegativeProfit}>-${formatNumber(cumulativeWinnings * -1)}</Text>}
         </View>
         <View style={styles.sessionDetail}>
           <Text style={styles.sessionDetailTitle}>Hourly Rate</Text>
           {hourlyRate > 0
             ? <Text style={styles.totalProfit}>+${formatNumber(hourlyRate)}/hr</Text>
-            : <Text style={styles.totalProfit}>-${formatNumber(hourlyRate)}/hr</Text>}
+            : <Text style={styles.totalNegativeProfit}>-${formatNumber(hourlyRate * -1)}/hr</Text>}
         </View>
         <View style={styles.sessionDetail}>
           <Text style={styles.sessionDetailTitle}>$/Session</Text>
           {hourPerSession > 0
             ? <Text style={styles.totalProfit}>+${formatNumber(hourPerSession)}</Text>
-            : <Text style={styles.totalProfit}>-${formatNumber(hourPerSession)}</Text>}
+            : <Text style={styles.totalNegativeProfit}>-${formatNumber(hourPerSession * -1)}</Text>}
         </View>
         <View style={styles.sessionDetail}>
           <Text style={styles.sessionDetailTitle}>Duration</Text>
@@ -78,6 +78,10 @@ const styles = StyleSheet.create({
   totalProfit: {
     fontSize: 25,
     color: 'green'
+  },
+  totalNegativeProfit: {
+    fontSize: 25,
+    color: 'red'
   },
   noColor: {
     fontSize: 25,

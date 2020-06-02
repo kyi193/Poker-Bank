@@ -25,7 +25,7 @@ class MainMenu extends Component {
         }
       }
       for (let i = 1; i < 100; i++) {
-        const win = Math.random() <= 0.68 ? true : false
+        const win = Math.random() <= 0.75 ? true : false
         const percentChange = (Math.random() * .2) + .1
         let result;
         const lastSession = sessions[i - 1]
