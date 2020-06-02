@@ -130,7 +130,7 @@ class ImportData extends Component {
             backgroundColor: darkGray,
             justifyContent: 'space-around',
           }} />
-        <Text style={{ marginLeft: 5, fontSize: 18, color: 'white' }}>Import Valid JSON content here:</Text>
+        <Text style={{ marginLeft: 5, fontSize: 18, color: 'white', marginTop: 10 }}>Import Valid JSON content here:</Text>
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}
           keyboardShouldPersistTaps='handled'
         >
