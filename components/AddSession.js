@@ -49,6 +49,16 @@ class AddSession extends Component {
       { cancelable: false }
     );
 
+  submitSuccessAlert = () =>
+    Alert.alert(
+      "All Done!",
+      "Your session has successfully been submitted.",
+      [
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
+
   onChangeBuyIn = (buyIn) => {
     this.setState(() => ({
       buyIn,
@@ -70,7 +80,7 @@ class AddSession extends Component {
     const { dispatch } = this.props
     const result = cashOut - buyIn
     const sessionID = generateUID()
-    if (date.length < 1 || buyIn.length < 1 || cashOut < 1 || typeof duration !== 'number') {
+    if (date.length < 1 || buyIn.length < 1 || cashOut < 1 || duration.length < 1) {
       this.createTwoButtonAlert()
       return
     }
@@ -83,6 +93,13 @@ class AddSession extends Component {
     }
     dispatch(addSession(sessionID, sessionInfo))
     saveSession(sessionID, sessionInfo)
+    this.submitSuccessAlert()
+    this.setState(() => ({
+      date: '',
+      buyIn: null,
+      cashOut: null,
+      duration: null,
+    }))
   }
 
   toHome = () => {
