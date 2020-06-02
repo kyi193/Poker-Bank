@@ -19,6 +19,18 @@ function ImportBtn({ onPress }) {
   )
 }
 
+function ClearBtn({ onPress }) {
+  return (
+    <TouchableOpacity
+      style={Platform.OS === 'ios'
+        ? styles.iosClearBtn
+        : styles.androidSubmitBtn}
+      onPress={onPress}>
+      <Text style={styles.submitBtnText}>Clear Text</Text>
+    </TouchableOpacity>
+  )
+}
+
 class ImportData extends Component {
   constructor(props) {
     super(props);
@@ -53,6 +65,11 @@ class ImportData extends Component {
       { cancelable: false }
     );
 
+  clearText = () => {
+    this.setState(() => ({
+      text: '',
+    }))
+  }
   submitData = () => {
     const { text } = this.state
     const importData = JSON.parse(text)
@@ -135,6 +152,7 @@ class ImportData extends Component {
             value={this.state.text}
           />
         </ScrollView>
+        <ClearBtn onPress={this.clearText} />
         <ImportBtn onPress={this.submitData} />
       </View>
     )
@@ -158,6 +176,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 50
+  },
+  iosClearBtn: {
+    backgroundColor: darkGray,
+    borderColor: 'gray',
+    borderWidth: 2,
+    padding: 10,
+    borderRadius: 7,
+    height: 60,
+    marginLeft: 40,
+    marginRight: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 10
   },
   androidSubmitBtn: {
     backgroundColor: 'blue',
