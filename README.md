@@ -1,24 +1,56 @@
-# Animated Splash Screen Example
+Poker Bank
 
-<p>
-  <!-- iOS -->
-  <img alt="Supports Expo iOS" longdesc="Supports Expo iOS" src="https://img.shields.io/badge/iOS-4630EB.svg?style=flat-square&logo=APPLE&labelColor=999999&logoColor=fff" />
-  <!-- Android -->
-  <img alt="Supports Expo Android" longdesc="Supports Expo Android" src="https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff" />
-  <!-- Web -->
-  <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
-</p>
+Whether you would like to start tracking your progress or keeping yourself accountable in poker, Poker Bank is the answer for you. This app lets you save session results, organize your data in chronological order, and visualize your progress with graphs by session or date. Poker Bank also includes easy to use data and import functionality, allowing users to migrate session data from one device to another.
 
-This example shows you how to create an animated splash screen for your app. It uses the app loading to load the assets required for the animation. Once that's loaded, it replaces the app loading with a custom component that loads the rest of your app. When all of this is finished, it uses an outro animation and renders the app.
+### Prerequisites
 
-## 🚀 How to use
+NOTE: This app is currently only compatible with IOS devices.
 
-- Run `yarn` or `npm install`
-- Run [`expo start`](https://docs.expo.io/versions/latest/workflow/expo-cli/), try it out.
-- Wait until the app is built and downloaded. Press "run again" to reload the app and splash screen.
+1. You will need to install the Expo app on your mobile device first to run Poker Bank. 
+```
+https://apps.apple.com/us/app/expo-client/id982107779
+```
+2. Install the Expo Client on your computer.
+```
+npm install -g expo-cli
+```
 
-## 📝 Notes
+## Getting Started
 
-- [Expo AppLoading docs](https://docs.expo.io/versions/latest/sdk/app-loading/)
-- [Expo Assets guide](https://docs.expo.io/versions/latest/guides/assets/)
-- [Expo Splash Screen guide](https://docs.expo.io/versions/latest/guides/splash-screens/)
+To run this project locally, clone this repository and run the following commands:
+
+```
+yarn install
+expo start
+open Poker Bank on your IOS device with the Expo App
+```
+
+## App Features
+
+Add and view session results
+
+![](https://media2.giphy.com/media/f6DGTdvW0a1wLmZWWM/giphy.gif?cid=4d1e4f2972640b461221f4038adc0a8a313a759f1e756570&rid=giphy.gif)
+
+Display graphs to visualize progress
+
+![](https://media1.giphy.com/media/dTVWijTnxjLRjOdj1S/giphy.gif?cid=4d1e4f2972640b461221f4038adc0a8a313a759f1e756570&rid=giphy.gif)
+
+Easily import and export data
+
+![](https://media3.giphy.com/media/cjch79SM6sHBi9WSSR/giphy.gif?cid=4d1e4f295474bd26bc91bbe1f2ec578b2df19e2f49ce2118&rid=giphy.gif)
+
+
+## Built With
+
+* [React-Native](https://reactnative.dev/) - The framework used.
+* [Expo Tools](https://expo.io/tools#cli) - Framework/set of tools built around React Native for developing, building, and deploying mobile apps.
+* [Redux](https://redux.js.org/introduction/core-concepts) - State container that stores state data all in one place.
+
+
+## Authors
+
+* **Kevin Yi** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+
+## Acknowledgments
+
+* Andrew Yi for creating the backend servers to export data.
