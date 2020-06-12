@@ -25,7 +25,7 @@ expo start
 open Poker Bank on your IOS device with the Expo App
 ```
 
-## App Features
+# App Features
 
 Add and view session results
 
@@ -51,6 +51,6 @@ Easily import and export data
 
 * **Kevin Yi** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
-## Acknowledgments
+# Acknowledgments
 
 * Andrew Yi for creating the backend servers to export data.
