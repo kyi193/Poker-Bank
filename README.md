@@ -1,8 +1,8 @@
-Poker Bank
+### Poker Bank
 
 Whether you would like to start tracking your progress or keeping yourself accountable in poker, Poker Bank is the answer for you. This app lets you save session results, organize your data in chronological order, and visualize your progress with graphs by session or date. Poker Bank also includes easy to use data and import functionality, allowing users to migrate session data from one device to another.
 
-### Prerequisites
+## Prerequisites
 
 NOTE: This app is currently only compatible with IOS devices.
 
@@ -29,7 +29,7 @@ open Poker Bank on your IOS device with the Expo App
 
 Add and view session results
 
-![](https://media2.giphy.com/media/f6DGTdvW0a1wLmZWWM/giphy.gif?cid=4d1e4f2972640b461221f4038adc0a8a313a759f1e756570&rid=giphy.gif)
+![](https://media2.giphy.com/media/JPgbcfe9C9RvcXAq3g/giphy.gif?cid=4d1e4f29a078ee6daee476f74ea21973592a4493b67db2ce&rid=giphy.gif)
 
 Display graphs to visualize progress
 
