@@ -37,7 +37,7 @@ Display graphs to visualize progress
 
 Easily import and export data
 
-![](https://media3.giphy.com/media/cjch79SM6sHBi9WSSR/giphy.gif?cid=4d1e4f295474bd26bc91bbe1f2ec578b2df19e2f49ce2118&rid=giphy.gif)
+![](https://media3.giphy.com/media/LkYhRX9InFsYW939w6/giphy.gif?cid=4d1e4f29d12d925a35eee05494d2e423d23d0c5b784cc36d&rid=giphy.gif)
 
 
 ## Built With
