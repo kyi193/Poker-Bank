@@ -53,4 +53,4 @@ Easily import and export data
 
 # Acknowledgments
 
-* Andrew Yi for creating the backend servers to export data.
+* **Andrew Yi** For implementing the backend servers to export data to email
