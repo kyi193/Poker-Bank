@@ -12,7 +12,7 @@ https://apps.apple.com/us/app/expo-client/id982107779
 ```
 2. Install the Expo Client on your computer.
 ```
-npm install -g expo-cli
+-npm install -g expo-cli
 ```
 
 ## Getting Started
@@ -20,8 +20,8 @@ npm install -g expo-cli
 To run this project locally, clone this repository and run the following commands:
 
 ```
-yarn install
-expo start
+-yarn install
+-expo start
 open Poker Bank on your IOS device with the Expo App
 ```
 
