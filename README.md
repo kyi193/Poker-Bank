@@ -49,7 +49,7 @@ Easily import and export data
 
 ## Authors
 
-* **Kevin Yi** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Kevin Yi** 
 
 # Acknowledgments
 
