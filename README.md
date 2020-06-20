@@ -1,6 +1,6 @@
 # Poker Bank
 
-Whether you would like to start tracking your progress or keeping yourself accountable in poker, Poker Bank is the answer for you. This app lets you save session results, organize your data in chronological order, and visualize your progress with graphs by session or date. Poker Bank also includes easy to use data and import functionality, allowing users to migrate session data from one device to another.
+Whether you would like to start tracking your progress or keep yourself accountable in poker, Poker Bank is the answer for you. This app lets you save session results, organize your data in chronological order, and visualize your progress with graphs by session or date. Poker Bank also includes easy to use data import and export functionality, allowing users to easily migrate sessions from one device to another.
 
 ## Prerequisites
 
