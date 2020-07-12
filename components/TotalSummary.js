@@ -93,32 +93,45 @@ const styles = StyleSheet.create({
 })
 
 function mapStateToProps(state) {
-  const sessions = Object.assign({}, state);
-  let totalHours = 0;
-  let sessionsWon = 0;
-  const sortedSessions = [];
-  for (const sessionId in sessions) {
-    if (sessions[sessionId].result >= 0) {
-      sessionsWon += 1
+  if (Object.keys(state).length !== 0) {
+    const sessions = Object.assign({}, state);
+    let totalHours = 0;
+    let sessionsWon = 0;
+    const sortedSessions = [];
+    let cumulativeWinnings = 0
+    for (const sessionId in sessions) {
+      if (sessions[sessionId].result >= 0) {
+        sessionsWon += 1
+      }
+      totalHours += sessions[sessionId].duration
+      sortedSessions.push(sessions[sessionId])
+      cumulativeWinnings += sessions[sessionId].result
     }
-    totalHours += sessions[sessionId].duration
-    sortedSessions.push(sessions[sessionId])
-  }
-  sortedSessions.sort(function (a, b) {
-    return new Date(b.date) - new Date(a.date);
-  })
-  const cumulativeWinnings = (sortedSessions[0].cumulativeWinnings).toFixed(2)
-  const hourlyRate = (cumulativeWinnings / totalHours).toFixed(2)
-  const hourPerSession = (cumulativeWinnings / sortedSessions.length).toFixed(2)
-  const percentWon = (((sessionsWon / sortedSessions.length)) * 100).toFixed()
-  return {
-    totalHours,
-    cumulativeWinnings,
-    sessions: sortedSessions.length,
-    sessionsWon,
-    hourlyRate,
-    hourPerSession,
-    percentWon,
+    sortedSessions.sort(function (a, b) {
+      return new Date(b.date) - new Date(a.date);
+    })
+    const hourlyRate = (cumulativeWinnings / totalHours).toFixed(2)
+    const hourPerSession = (cumulativeWinnings / sortedSessions.length).toFixed(2)
+    const percentWon = (((sessionsWon / sortedSessions.length)) * 100).toFixed()
+    return {
+      totalHours,
+      cumulativeWinnings,
+      sessions: sortedSessions.length,
+      sessionsWon,
+      hourlyRate,
+      hourPerSession,
+      percentWon,
+    }
+  } else {
+    return {
+      totalHours: 0,
+      cumulativeWinnings: 0,
+      sessions: 0,
+      sessionsWon: 0,
+      hourlyRate: 0,
+      hourPerSession: 0,
+      percentWon: 0,
+    }
   }
 }
 export default connect(mapStateToProps)(TotalSummary)
